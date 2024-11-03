@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController // 接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/
+@CrossOrigin(origins = "http://localhost:8080/login")
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
