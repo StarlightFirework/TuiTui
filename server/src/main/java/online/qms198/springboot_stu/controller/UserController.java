@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@RestController // 接口方法返回对象，转换成json文本
-@RequestMapping("/user") // localhost:8088/user/
+@RestController // 标记请求处理类。接口方法返回对象，转换成json文本
+@RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类
 @CrossOrigin(origins = "http://localhost:8080/login")
 public class UserController {
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);//日志记录对象
     @Autowired
     IUserService userService;
 

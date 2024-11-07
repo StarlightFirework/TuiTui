@@ -52,6 +52,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
         <!--参数校验-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
