@@ -1,8 +1,11 @@
 package online.qms198.springboot_stu.service;
 
+import online.qms198.springboot_stu.controller.UserController;
 import online.qms198.springboot_stu.pojo.User;
 import online.qms198.springboot_stu.pojo.dto.UserRegisterDto;
 import online.qms198.springboot_stu.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,4 +80,8 @@ public class UserService implements IUserService{
         return null; // 登录失败
     }
 
+    @Override
+    public User getUserByUserAccount(String userAccount) {
+        return userRepository.findByUserAccount(userAccount);
+    }
 }

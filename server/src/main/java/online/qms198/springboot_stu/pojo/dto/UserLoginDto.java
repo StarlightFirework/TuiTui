@@ -14,7 +14,7 @@ public class UserLoginDto {
     @Pattern(regexp = "^[0-9]+$", message = "userAccount必须为数字")
     private String userAccount;
 
-
+    private String token;
 
     public String getUserAccount() {
         return userAccount;
@@ -40,4 +40,11 @@ public class UserLoginDto {
         this.password = password;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }
