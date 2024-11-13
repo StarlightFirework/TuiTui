@@ -7,12 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
-@Data //使用注解实现get、set、construction
-@NoArgsConstructor
-@AllArgsConstructor
+@Data // 使用注解实现get、set方法
+@NoArgsConstructor// 实现 无参construction 方法
+@AllArgsConstructor// 实现 有参construction 方法
 @Table(name = "tb_user")
 @Entity
-
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

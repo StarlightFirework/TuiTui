@@ -7,6 +7,8 @@
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/ResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +89,8 @@
       <workItem from="1730959815133" duration="7910000" />
       <workItem from="1731158128003" duration="1872000" />
       <workItem from="1731240420357" duration="773000" />
+      <workItem from="1731484446849" duration="27000" />
+      <workItem from="1731485787351" duration="1476000" />
     </task>
     <servers />
   </component>
