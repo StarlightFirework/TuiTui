@@ -17,4 +17,6 @@ public interface IUserService {
     void delete(Integer userId);
 
     User authenticate(String userAccount, String password);
+
+    User getUserByUserAccount(String userAccount);
 }

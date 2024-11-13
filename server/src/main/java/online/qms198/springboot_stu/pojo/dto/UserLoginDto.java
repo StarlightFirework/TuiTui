@@ -20,5 +20,6 @@ public class UserLoginDto {
     @Length(min = 8, max = 12)
     @Pattern(regexp = "^[0-9]+$", message = "userAccount必须为数字")
     private String userAccount;
-
+    //swt令牌
+    private String token;
 }
