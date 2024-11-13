@@ -1,13 +1,17 @@
 package online.qms198.springboot_stu.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
+
+@Data
+@NoArgsConstructor
 
 public class ResponseMessage<T> {
     private Integer code;
     private String message;
     private T data;
-
-
     public ResponseMessage(Integer code, String message, T data) {
         this.code = code;
         this.message = message;
@@ -21,29 +25,5 @@ public class ResponseMessage<T> {
 
     public static <T> ResponseMessage<T> success() {
         return new ResponseMessage(HttpStatus.OK.value(), "success!", null);
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setData(T data) {
-        this.data = data;
     }
 }
