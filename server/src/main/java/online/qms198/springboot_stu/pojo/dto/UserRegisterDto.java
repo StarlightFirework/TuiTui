@@ -1,5 +1,6 @@
 package online.qms198.springboot_stu.pojo.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -33,4 +34,8 @@ public class UserRegisterDto {
     @Length(min = 8, max = 12)
     @Pattern(regexp = "^[0-9]+$", message = "userAccount必须为数字")
     private String userAccount;
+
+    @NotBlank(message = "身份信息不能为空")//拦截空内容
+    @Pattern(regexp = "^[0-1]+$", message = "身份信息必须为0或1")
+    private String userIdentity;
 }

@@ -20,10 +20,16 @@ public class User {
     // 保持一致
     @Column(name = "user_name")
     private String userName;
+
     @Column(unique = true, name = "user_account")
     private String userAccount;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "email")
     private String email;
+
+    @Column(name = "user_identity")
+    private String userIdentity;
 }
