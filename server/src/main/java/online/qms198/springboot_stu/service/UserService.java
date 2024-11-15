@@ -82,6 +82,17 @@ public class UserService implements IUserService{
 
     @Override
     public User getUserByUserAccount(String userAccount) {
-        return userRepository.findByUserAccount(userAccount);
+        try {
+            User user = userRepository.findByUserAccount(userAccount);
+            if (user == null) {
+                throw new IllegalArgumentException("用户不存在，参数异常!");
+            }
+            return user;
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException(e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException("Unexpected error occurred while fetching user", e);
+        }
     }
+
 }
