@@ -17,17 +17,6 @@ public class UserService implements IUserService{
     @Autowired
     UserRepository userRepository;
 
-//    @Override
-//    public User add(UserDto user) {
-//        User userPojo = new User();
-//        BeanUtils.copyProperties(user, userPojo);
-//        // 调用数据访问类的方法
-//        System.out.println(userPojo);
-//
-//        return userRepository.save(userPojo);
-//
-//    }
-
     @Override
     @Transactional
     public User add(UserRegisterDto user) {
@@ -41,7 +30,6 @@ public class UserService implements IUserService{
         }
         return userRepository.save(userPojo);
     }
-
 
     @Override
     public User getUser(Integer userId) {
@@ -67,7 +55,6 @@ public class UserService implements IUserService{
     public void delete(Integer userId) {
         userRepository.deleteById(userId);
     }
-
     @Override
     public User authenticate(String userAccount, String password) {
         User user = userRepository.findByUserAccount(userAccount); // 确保使用正确的查询方法
