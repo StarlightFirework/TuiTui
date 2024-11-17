@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/Recruitment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/RecruitmentDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/RecruitmentPageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/UserLoginDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/UserLoginDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/Recruitment.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/Recruitment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/ResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/RecruitmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/RecruitmentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/RecruitmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/RecruitmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/RecruitmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/RecruitmentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/RecruitmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/RecruitmentService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,27 +53,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SpringbootStuApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SF/IdeaProjects/TuiTui/TuiTui&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.SpringbootStuApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/SF/IdeaProjects/TuiTui/TuiTui",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="online.qms198.springboot_stu.pojo.dto" />
@@ -112,7 +111,9 @@
       <workItem from="1731484446849" duration="27000" />
       <workItem from="1731485787351" duration="1632000" />
       <workItem from="1731568118811" duration="2252000" />
-      <workItem from="1731671021384" duration="8342000" />
+      <workItem from="1731671021384" duration="9482000" />
+      <workItem from="1731747076831" duration="4001000" />
+      <workItem from="1731761067614" duration="3673000" />
     </task>
     <servers />
   </component>

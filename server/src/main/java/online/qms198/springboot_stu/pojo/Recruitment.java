@@ -26,6 +26,9 @@ public class Recruitment {
     @Column(name = "publish_time")
     private LocalDateTime publishTime; // 招聘发布日期时间
 
+    @Column(name = "recruitment_deadline") // 招聘截止时间
+    private LocalDateTime recruitmentDeadline;
+
     @Column(name = "publish_title")
     private String publishTitle; // 招聘标题
 

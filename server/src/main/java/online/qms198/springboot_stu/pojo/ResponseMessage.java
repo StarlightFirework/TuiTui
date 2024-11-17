@@ -26,4 +26,7 @@ public class ResponseMessage<T> {
     public static <T> ResponseMessage<T> success() {
         return new ResponseMessage(HttpStatus.OK.value(), "success!", null);
     }
+    public static <T> ResponseMessage<T> error(String errorMessage) {
+        return new ResponseMessage(HttpStatus.MULTI_STATUS.value(), "error!", errorMessage);
+    }
 }
