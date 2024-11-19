@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类
-@CrossOrigin(origins = "http://localhost:8080/login")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);//日志记录对象
     @Autowired
