@@ -71,9 +71,9 @@ public class UserController {
 
 
     // 查询
-    @GetMapping("/{userId}") // URL: localhost:8088/user/userId method: delete
-    public ResponseMessage<User> get(@PathVariable Integer userId) {
-        User userNew = userService.getUser(userId);
+    @GetMapping("/{userAccount}") // URL: localhost:8088/user/userId method: delete
+    public ResponseMessage<User> get(@PathVariable String userAccount) {
+        User userNew = userService.getUserByUserAccount(userAccount);
         return ResponseMessage.success(userNew);
     }
 
