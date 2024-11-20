@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: online.qms198.springboot_stu.SpringbootStuApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.040 s -- in online.qms198.springboot_stu.SpringbootStuApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.989 s -- in online.qms198.springboot_stu.SpringbootStuApplicationTests
