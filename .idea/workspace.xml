@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +109,7 @@
       <workItem from="1731747076831" duration="4001000" />
       <workItem from="1731761067614" duration="3673000" />
       <workItem from="1731819525291" duration="494000" />
-      <workItem from="1732106260237" duration="2570000" />
+      <workItem from="1732106260237" duration="3331000" />
     </task>
     <servers />
   </component>
