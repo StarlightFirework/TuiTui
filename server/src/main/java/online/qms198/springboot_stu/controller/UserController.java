@@ -22,7 +22,13 @@ import java.nio.charset.StandardCharsets;
 
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类
-@CrossOrigin(origins = "http://localhost:8080/login")
+@CrossOrigin(
+        origins = "http://localhost:3000",
+        allowedHeaders = {"Authorization", "Content-Type"},
+        methods = {RequestMethod.POST},
+        allowCredentials = "true",
+        exposedHeaders = {"Authorization"}
+)
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);//日志记录对象
     @Autowired
@@ -71,8 +77,9 @@ public class UserController {
 
 
     // 查询
-    @GetMapping("/{userAccount}") // URL: localhost:8088/user/userId method: delete
-    public ResponseMessage<User> get(@PathVariable String userAccount) {
+    @GetMapping("/userAccount")
+    public ResponseMessage<User> get(@RequestParam String userAccount) {
+        logger.info("Querying user with account: {}", userAccount);
         User userNew = userService.getUserByUserAccount(userAccount);
         return ResponseMessage.success(userNew);
     }
