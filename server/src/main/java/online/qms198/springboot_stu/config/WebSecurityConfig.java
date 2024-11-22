@@ -59,15 +59,15 @@ public class WebSecurityConfig {
                 .sessionManagement(sessionManagementConfigurer -> sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizationRegistry -> authorizationRegistry
                         //允许对于网站静态资源的无授权访问
-//                        .requestMatchers(HttpMethod.GET, "/", "/index.html").permitAll()
-                        .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount", "user/{userId}").permitAll()
-                        //跨域请求会先进行一次options请求
-                        .requestMatchers("/", "/static/**", "/public/**", "/resources/**", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/", "/index.html", "/static/**", "/css/**", "/js/**", "/images/**").permitAll()
                         //对登录注册允许匿名访问
+                        .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount", "user/{userId}").permitAll()
+//                        .requestMatchers("/", "/static/**", "/public/**", "/resources/**", "/css/**", "/js/**", "/images/**").permitAll()
 
+                        // OPTIONS 请求允许匿名访问（跨域预检）
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
 //                         除上面外的所有请求全部需要鉴权认证
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 //禁用缓存
                 .headers(headersConfigurer -> headersConfigurer
