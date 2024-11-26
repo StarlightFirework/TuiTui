@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -51,6 +52,14 @@ public class WebSecurityConfig {
         return new JwtAuthenticationProvider();
     }
 
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")  // 匹配所有请求路径
+                .allowedOrigins("http://localhost:3000", "http://qms198.online")  // 替换为前端实际访问的地址
+                .allowedMethods("GET", "POST", "PUT", "DELETE")  // 允许的 HTTP 方法
+                .allowedHeaders("*")
+                .allowCredentials(true);  // 允许发送认证信息（如 cookies）
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         //由于使用的是JWT，这里不需要csrf防护
@@ -59,15 +68,16 @@ public class WebSecurityConfig {
                 .sessionManagement(sessionManagementConfigurer -> sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizationRegistry -> authorizationRegistry
                         //允许对于网站静态资源的无授权访问
-                        .requestMatchers(HttpMethod.GET, "/", "/index.html", "/static/**", "/css/**", "/js/**", "/images/**").permitAll()
-                        //对登录注册允许匿名访问
-                        .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount", "user/{userId}").permitAll()
-//                        .requestMatchers("/", "/static/**", "/public/**", "/resources/**", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**").permitAll()
+
+                            //对登录注册允许匿名访问
+                        .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount").permitAll()
 
                         // OPTIONS 请求允许匿名访问（跨域预检）
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
+
 //                         除上面外的所有请求全部需要鉴权认证
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                 )
                 //禁用缓存
                 .headers(headersConfigurer -> headersConfigurer
