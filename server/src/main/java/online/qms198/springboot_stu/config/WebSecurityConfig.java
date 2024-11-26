@@ -68,7 +68,7 @@ public class WebSecurityConfig {
                 .sessionManagement(sessionManagementConfigurer -> sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizationRegistry -> authorizationRegistry
                         //允许对于网站静态资源的无授权访问
-                        .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login").permitAll()
+                        .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/").permitAll()
 
                             //对登录注册允许匿名访问
                         .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount").permitAll()
@@ -79,11 +79,7 @@ public class WebSecurityConfig {
 //                         除上面外的所有请求全部需要鉴权认证
                         .anyRequest().authenticated()
                 )
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/")
-                        .permitAll()
-                )
+
                 //禁用缓存
                 .headers(headersConfigurer -> headersConfigurer
                         .cacheControl(HeadersConfigurer.CacheControlConfig::disable)
