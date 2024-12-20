@@ -23,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类
 @CrossOrigin(
-        origins = "http://localhost:3000",
+        origins = {"http://localhost:3000", "http://qms198.online"},
         allowedHeaders = {"Authorization", "Content-Type"},
         methods = {RequestMethod.POST},
         allowCredentials = "true",

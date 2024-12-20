@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/config/WebSecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/RecruitmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/RecruitmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/ResponseMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/ResponseMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/dto/UserLoginDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/dto/UserLoginDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/dto/UserRegisterDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/dto/UserRegisterDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/security/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/security/CustomUserDetailsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/RecruitmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/RecruitmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/utils/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/utils/JwtUtil.class" afterDir="false" />
-    </list>
+    <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,7 +116,7 @@
       <workItem from="1732878508880" duration="1239000" />
       <workItem from="1733547442199" duration="702000" />
       <workItem from="1734598695098" duration="20000" />
-      <workItem from="1734680524479" duration="3861000" />
+      <workItem from="1734680524479" duration="4203000" />
     </task>
     <servers />
   </component>
