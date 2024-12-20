@@ -24,14 +24,9 @@ public class RecruitmentController {
     @Autowired
     IRecruitmentService recruitmentService;
     @PostMapping("/insert")
-    public ResponseMessage<Recruitment> add(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) {
-        try{
+    public ResponseMessage<Recruitment> add(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
             Recruitment recruitmentNew = recruitmentService.addRecruitment(recruitmentDto);
             return ResponseMessage.success(recruitmentNew);
-        }catch (DateTimeParseException e){
-            log.error("招聘信息截止时间解析错误",e);
-            return ResponseMessage.error("招聘信息截止时间解析错误");
-        }
     }
 
     @GetMapping("/{recruitmentId}")

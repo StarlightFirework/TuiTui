@@ -30,7 +30,6 @@ public class WebSecurityConfig {
     @Autowired
     private MyAccessDeniedHandler accessDeniedHandler;
 
-
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
@@ -58,6 +57,10 @@ public class WebSecurityConfig {
                 //基于token，所以不需要session
                 .sessionManagement(sessionManagementConfigurer -> sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizationRegistry -> authorizationRegistry
+
+                        //测试主页查询允许请求
+                        .requestMatchers("recruit").permitAll()
+
                         //允许对于网站静态资源的无授权访问
 //                        .requestMatchers(HttpMethod.GET, "/", "/index.html").permitAll()
                         .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount", "user/{userId}").permitAll()
@@ -67,7 +70,7 @@ public class WebSecurityConfig {
 
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
 //                         除上面外的所有请求全部需要鉴权认证
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 //禁用缓存
                 .headers(headersConfigurer -> headersConfigurer
