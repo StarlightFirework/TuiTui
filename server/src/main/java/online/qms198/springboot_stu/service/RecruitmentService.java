@@ -29,9 +29,12 @@ public class RecruitmentService implements IRecruitmentService{
 
     @Override
     @Transactional
-    public Recruitment addRecruitment(RecruitmentDto recruitmentDto) throws DateTimeParseException{
+    public Recruitment addRecruitment(RecruitmentDto recruitmentDto) throws Exception {
         Recruitment recruitmentPojo = new Recruitment();
         BeanUtils.copyProperties(recruitmentDto, recruitmentPojo);
+        if(recruitmentPojo.getMinMonthlySalary() > recruitmentPojo.getMaxMonthlySalary()){
+            throw new Exception("招聘信息的最小薪资不得大于最大薪资！");
+        }
         recruitmentPojo.setPublishTime(LocalDateTime.now());
 
         String pattern = "yyyy-MM-dd HH:mm:ss";
