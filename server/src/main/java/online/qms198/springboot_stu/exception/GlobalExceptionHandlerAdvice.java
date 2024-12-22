@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-
+@Slf4j
 @RestControllerAdvice // 统一处理注解
 public class GlobalExceptionHandlerAdvice {
 
-    Logger log = LoggerFactory.getLogger(GlobalExceptionHandlerAdvice.class);
+    //Logger log = LoggerFactory.getLogger(GlobalExceptionHandlerAdvice.class);
 
     @ExceptionHandler(Exception.class) // 什么异常的统一处理
     public ResponseMessage handlerException(Exception e, HttpServletRequest request, HttpServletResponse response) {
