@@ -9,10 +9,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springboot_stu" />
       </profile>
+      <profile name="Annotation profile for eduAdm" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="D:/maven/apache-maven-3.9.9/mvn_repo/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="eduAdm" />
+      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eduAdm" options="-parameters" />
       <module name="springboot_stu" options="-parameters" />
     </option>
   </component>
