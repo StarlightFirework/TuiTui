@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 
 @Data
 @NoArgsConstructor
-
 public class ResponseMessage<T> {
     private Integer code;
     private String message;

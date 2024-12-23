@@ -3,7 +3,6 @@ package online.qms198.springboot_stu.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import online.qms198.springboot_stu.pojo.Recruitment;
 import online.qms198.springboot_stu.pojo.ResponseMessage;
 import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.RecruitmentPage;
@@ -15,7 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.time.format.DateTimeParseException;
 import java.util.List;
-
+import online.qms198.springboot_stu.pojo.Recruitment;
 @Slf4j
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/recruit") // localhost:8088/user/，标记拦截user URL前缀地址类

@@ -8,11 +8,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot_stu" />
+        <module name="educationAdministration" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="EduAdm" target="21" />
+      <module name="eduAdm" target="21" />
+      <module name="EducationAdministater" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="EduAdm" options="-parameters" />
+      <module name="EducationAdministater" options="-parameters" />
+      <module name="eduAdm" options="-parameters" />
+      <module name="educationAdministration" options="-parameters" />
       <module name="springboot_stu" options="-parameters" />
     </option>
   </component>

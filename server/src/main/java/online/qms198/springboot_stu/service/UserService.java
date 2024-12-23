@@ -4,6 +4,7 @@ import online.qms198.springboot_stu.controller.UserController;
 import online.qms198.springboot_stu.pojo.User;
 import online.qms198.springboot_stu.pojo.dto.UserRegisterDto;
 import online.qms198.springboot_stu.repository.UserRepository;
+import online.qms198.springboot_stu.utils.EncryptionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -28,6 +29,8 @@ public class UserService implements IUserService{
         if (userRepository.findByUserAccount(userPojo.getUserAccount()) != null) {
             throw new RuntimeException("用户名已存在"); // 抛出自定义异常，触发事务回滚
         }
+        // 密码加密
+        userPojo.setPassword(EncryptionUtil.advancedEncryption(userPojo.getPassword()));
         return userRepository.save(userPojo);
     }
 
@@ -47,6 +50,8 @@ public class UserService implements IUserService{
     public User edit(UserRegisterDto user) {
         User userPojo = new User();
         BeanUtils.copyProperties(user, userPojo);
+        // 密码加密
+        userPojo.setPassword(EncryptionUtil.advancedEncryption(userPojo.getPassword()));
 
         return userRepository.save(userPojo);
     }
@@ -60,7 +65,12 @@ public class UserService implements IUserService{
         User user = userRepository.findByUserAccount(userAccount); // 确保使用正确的查询方法
         if (user != null) {
             // 如果没有加密，可以直接比较
-            if (user.getPassword().equals(password)) {
+//            if (user.getPassword().equals(password)) {
+//                return user; // 登录成功
+//            }
+//
+            //如果进行加密
+            if (EncryptionUtil.checkCiphertext(password,user.getPassword())) {
                 return user; // 登录成功
             }
         }
