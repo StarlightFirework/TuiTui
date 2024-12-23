@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.pojo.dto;
+package online.qms198.springboot_stu.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecruitmentPageDto {
+public class RecruitmentPage {
 
-    private Integer page;
-    private Integer size;
-    private List<Long> tagIds;
+    private Integer recruitmentTotal;
+
+    private List<Recruitment> recruitments;
 }
