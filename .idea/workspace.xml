@@ -5,25 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/java/com/sicnu/EduAdmApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/java/com/sicnu/controller/user.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/java/com/sicnu/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/java/com/sicnu/pojo/responseResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/java/com/sicnu/repository/userRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/java/com/sicnu/service/user.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../eduAdm/src/test/java/com/sicnu/EduAdmApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/EducationAdministrationApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/controller/user.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/pojo/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/pojo/responseResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/repository/StudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/service/user.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../educationAdministration/src/test/java/com/sicnu/EducationAdministrationApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/exception/GlobalExceptionHandlerAdvice.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +43,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../eduAdm" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../educationAdministration" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" root0="FORCE_HIGHLIGHTING" />
@@ -64,6 +67,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -78,6 +84,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.EduAdmApplicationTests.contextLoads.executor": "Run",
+    "JUnit.EducationAdministrationApplicationTests.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -85,32 +93,93 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.EduAdmApplication.executor": "Run",
+    "Spring Boot.EducationAdministrationApplication.executor": "Run",
     "Spring Boot.SpringbootStuApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/SF/IdeaProjects/TuiTui/TuiTui",
+    "last_opened_file_path": "C:/Users/SF/IdeaProjects/springboot_web_quickstart",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.24367817",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\SF\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="46593959-30a6-471d-ab5c-2a842c6922ae" reportId="TuiTui/qodana/2024-12-22" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="online.qms198.springboot_stu.pojo.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.EduAdmApplication">
-    <configuration name="EduAdmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.EducationAdministrationApplication">
+    <configuration name="EduAdmApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="eduAdm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sicnu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sicnu" />
+      <option name="MAIN_CLASS_NAME" value="com.sicnu.EduAdmApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EducationAdministrationApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="educationAdministration" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sicnu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sicnu" />
+      <option name="MAIN_CLASS_NAME" value="com.sicnu.EducationAdministrationApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EduAdmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="EduAdm" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sicnu.EduAdmApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EducationAdministaterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="EducationAdministater" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sicnu.EducationAdministaterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EducationAdministrationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="educationAdministration" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sicnu.EducationAdministrationApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,6 +191,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.EducationAdministrationApplicationTests" />
+        <item itemvalue="JUnit.EduAdmApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -163,7 +238,10 @@
       <workItem from="1734857416139" duration="184000" />
       <workItem from="1734863442934" duration="3675000" />
       <workItem from="1734867523226" duration="1474000" />
-      <workItem from="1734869312565" duration="394000" />
+      <workItem from="1734869312565" duration="659000" />
+      <workItem from="1734919539366" duration="3732000" />
+      <workItem from="1734923562660" duration="5918000" />
+      <workItem from="1734931570739" duration="692000" />
     </task>
     <servers />
   </component>

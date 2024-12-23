@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/server/pom.xml" />
         <option value="$PROJECT_DIR$/../../eduAdm/pom.xml" />
+        <option value="$PROJECT_DIR$/../../EducationAdministater/pom.xml" />
+        <option value="$PROJECT_DIR$/../../educationAdministration/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
