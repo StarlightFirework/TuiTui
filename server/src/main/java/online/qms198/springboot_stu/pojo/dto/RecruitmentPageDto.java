@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class RecruitmentPageDto {
 
-    private Integer recruitmentTotal;
-
-    private List<Recruitment> recruitments;
+    private Integer page;
+    private Integer size;
+    private List<Long> tagIds;
 }

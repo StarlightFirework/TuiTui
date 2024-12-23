@@ -77,7 +77,7 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
 
 //                         除上面外的所有请求全部需要鉴权认证
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
 
                 //禁用缓存
