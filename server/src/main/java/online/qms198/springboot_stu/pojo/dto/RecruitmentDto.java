@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -39,4 +40,6 @@ public class RecruitmentDto {
     private Integer numberOfDeliveries;
 
     private Integer getNumberOfDeliveries;
+
+    private List<Long> tagIds;
 }
