@@ -19,7 +19,7 @@ public class TagService {
     public void validateTagsExist(List<Long> tagIds) {
         List<Tag> tags = getTagsByIds(tagIds);
         if (tags.size() != tagIds.size()) {
-            throw new IllegalArgumentException("Some tags do not exist!");
+            throw new IllegalArgumentException("部分标签不存在！");
         }
     }
 }

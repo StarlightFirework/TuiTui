@@ -17,7 +17,7 @@ public interface IRecruitmentService {
     Recruitment addRecruitment(RecruitmentDto recruitmentDto) throws Exception;
 
     // 通过id分页查询记录
-    RecruitmentPage getRecruitments(Integer page, Integer size);
+    RecruitmentPage getRecruitmentsByPage(Integer page, Integer size);
     // 修改
     Recruitment editRecruitment(RecruitmentDto recruitmentDto);
 
