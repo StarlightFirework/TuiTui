@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IJobTagMappingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/JobTagMappingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/053e7981-6a96-4a41-8fdc-783f04730625.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/053e7981-6a96-4a41-8fdc-783f04730625.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../educationAdministration/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../educationAdministration/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../educationAdministration/src/main/java/com/sicnu/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/JobTagMappingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/JobTagMappingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/TagService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -81,7 +88,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/SF/IdeaProjects/springboot_web_quickstart",
+    "last_opened_file_path": "C:/Users/SF/IdeaProjects/educationAdministration",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,11 +102,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="QodanaReportsService">
-    <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\SF\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="46593959-30a6-471d-ab5c-2a842c6922ae" reportId="TuiTui/qodana/2024-12-22" />
-    </option>
-  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="online.qms198.springboot_stu.pojo.dto" />
@@ -244,6 +246,8 @@
       <workItem from="1734931570739" duration="13480000" />
       <workItem from="1734951835424" duration="2733000" />
       <workItem from="1734954585610" duration="332000" />
+      <workItem from="1734957925827" duration="721000" />
+      <workItem from="1735002362985" duration="6026000" />
     </task>
     <servers />
   </component>

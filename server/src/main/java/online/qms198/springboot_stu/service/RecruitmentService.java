@@ -46,11 +46,15 @@ public class RecruitmentService implements IRecruitmentService{
     @Override
     @Transactional
     public Recruitment addRecruitment(RecruitmentDto recruitmentDto) throws Exception {
+
         Recruitment recruitmentPojo = new Recruitment();
         BeanUtils.copyProperties(recruitmentDto, recruitmentPojo);
+
         if(recruitmentPojo.getMinMonthlySalary() > recruitmentPojo.getMaxMonthlySalary()){
             throw new Exception("招聘信息的最小薪资不得大于最大薪资！");
         }
+
+        // 设置发布时间
         recruitmentPojo.setPublishTime(LocalDateTime.now());
 
         String pattern = "yyyy-MM-dd HH:mm:ss";
@@ -76,7 +80,7 @@ public class RecruitmentService implements IRecruitmentService{
         }
     }
     @Override
-    public RecruitmentPage getRecruitments(Integer page , Integer size) {
+    public RecruitmentPage getRecruitmentsByPage(Integer page , Integer size) {
         Pageable pageable = (Pageable) PageRequest.of(page,size);
         Page<Recruitment> recruitmentPage = recruitmentRepository.findAll(pageable);
         return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
