@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import online.qms198.springboot_stu.pojo.ResponseMessage;
 import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.RecruitmentPage;
+import online.qms198.springboot_stu.pojo.dto.RecruitmentEditDto;
 import online.qms198.springboot_stu.pojo.dto.RecruitmentPageDto;
+import online.qms198.springboot_stu.pojo.dto.RecruitmentTagsDto;
 import online.qms198.springboot_stu.repository.JobTagMappingRepository;
 import online.qms198.springboot_stu.service.IJobTagMappingService;
 import online.qms198.springboot_stu.service.IRecruitmentService;
@@ -50,18 +52,21 @@ public class RecruitmentController {
         }
         return ResponseMessage.success(recruitmentPage);
     }
-//
-//    @PutMapping
-//    public ResponseMessage<User> edit(@Validated @RequestBody UserRegisterDto user) {
-//        Recruitment recruitmentNew = recruitmentService.edit(user);
-//        return ResponseMessage.success(userNew);
-//    }
 
-//    // 删除
-//    @DeleteMapping("/{userId}") // URL: localhost:8088/user/userId method: delete
-//    public ResponseMessage<User> delete(@PathVariable Integer userId) {
-//        recruitmentService(userId);
-//        return ResponseMessage.success();
-//    }
+    @PutMapping
+    public ResponseMessage<RecruitmentTagsDto> edit(@RequestBody RecruitmentEditDto recruitmentEditDto) throws Exception {
+        System.out.println("控制层招聘信息主键id: " + recruitmentEditDto.getRecruitmentId());
+        RecruitmentTagsDto recruitmentNew = recruitmentService.editRecruitment(recruitmentEditDto);
+        return ResponseMessage.success(recruitmentNew);
+    }
+
+    // 删除
+    @DeleteMapping("/{recruitmentId}")
+    public ResponseMessage<Recruitment> delete(@PathVariable Integer recruitmentId) {
+        if(recruitmentService.delete(recruitmentId)){
+            return ResponseMessage.success();
+        }
+        return ResponseMessage.error();
+    }
 
 }

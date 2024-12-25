@@ -32,4 +32,7 @@ public class User {
 
     @Column(name = "user_identity")
     private String userIdentity;
+
+    @Column(name = "status")
+    private Integer status;
 }
