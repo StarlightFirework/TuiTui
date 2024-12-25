@@ -21,4 +21,7 @@ public class Tag {
     @Column(nullable = false, length = 50) // 不为空 长度50
     private String name;
 
+    @Column(name = "status")
+    private Integer status;
+
 }

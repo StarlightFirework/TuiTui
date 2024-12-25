@@ -14,7 +14,7 @@ import java.util.List;
 public class JobTagMappingService implements IJobTagMappingService {
 
     @Autowired
-    public JobTagMappingRepository jobTagMappingRepository;
+    private JobTagMappingRepository jobTagMappingRepository;
 
     @Override
     public RecruitmentPage getRecruitmentsByTagsIds(List<Long> tagIds, long tagCount, Integer page, Integer size) {
