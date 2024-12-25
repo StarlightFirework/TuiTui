@@ -3,6 +3,8 @@ package online.qms198.springboot_stu.service;
 import online.qms198.springboot_stu.pojo.Recruitment;
 import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.RecruitmentPage;
+import online.qms198.springboot_stu.pojo.dto.RecruitmentEditDto;
+import online.qms198.springboot_stu.pojo.dto.RecruitmentTagsDto;
 
 import java.util.List;
 
@@ -19,8 +21,8 @@ public interface IRecruitmentService {
     // 通过id分页查询记录
     RecruitmentPage getRecruitmentsByPage(Integer page, Integer size);
     // 修改
-    Recruitment editRecruitment(RecruitmentDto recruitmentDto);
+    RecruitmentTagsDto editRecruitment(RecruitmentEditDto recruitmentEditDto) throws Exception;
 
     // 删除
-    void delete(Integer recruitmentId);
+    public boolean delete(Integer recruitmentId);
 }

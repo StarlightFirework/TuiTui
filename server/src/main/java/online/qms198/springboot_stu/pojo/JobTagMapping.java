@@ -24,5 +24,6 @@ public class JobTagMapping {
     @JoinColumn(name = "tag_id")
     private Tag tag;
 
-
+    @Column(name = "status")
+    private Integer status;
 }

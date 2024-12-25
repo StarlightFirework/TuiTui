@@ -14,7 +14,7 @@ public interface IUserService {
     User edit(UserRegisterDto user);
 
     // 删除用户
-    void delete(Integer userId);
+    boolean delete(Integer userId);
 
     User authenticate(String userAccount, String password);
 

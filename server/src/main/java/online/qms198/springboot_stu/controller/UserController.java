@@ -94,7 +94,9 @@ public class UserController {
     // 删除
     @DeleteMapping("/{userId}") // URL: localhost:8088/user/userId method: delete
     public ResponseMessage<User> delete(@PathVariable Integer userId) {
-        userService.delete(userId);
-        return ResponseMessage.success();
+        if(userService.delete(userId)){
+            return ResponseMessage.success();
+        }
+        return ResponseMessage.error();
     }
 }

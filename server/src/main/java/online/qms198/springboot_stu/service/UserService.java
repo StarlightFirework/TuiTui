@@ -31,6 +31,7 @@ public class UserService implements IUserService{
         }
         // 密码加密
         userPojo.setPassword(EncryptionUtil.advancedEncryption(userPojo.getPassword()));
+        userPojo.setStatus(0);
         return userRepository.save(userPojo);
     }
 
@@ -57,8 +58,15 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public void delete(Integer userId) {
-        userRepository.deleteById(userId);
+    @Transactional
+    public boolean delete(Integer userId) {
+
+        User user = userRepository.findByUserId(userId);
+        if(user == null){
+            return false;
+        }
+        user.setStatus(1);
+        return userRepository.save(user) != null;
     }
     @Override
     public User authenticate(String userAccount, String password) {
