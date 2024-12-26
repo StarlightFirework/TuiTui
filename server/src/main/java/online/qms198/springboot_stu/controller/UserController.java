@@ -25,7 +25,7 @@ import java.nio.charset.StandardCharsets;
 @CrossOrigin(
         origins = {"http://localhost:3000", "https://qms198.online"},
         allowedHeaders = {"Authorization", "Content-Type"},
-        methods = {RequestMethod.POST},
+        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS},
         allowCredentials = "true",
         exposedHeaders = {"Authorization"}
 )

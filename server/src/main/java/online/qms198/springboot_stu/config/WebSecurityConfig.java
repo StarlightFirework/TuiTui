@@ -54,10 +54,12 @@ public class WebSecurityConfig {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")  // 匹配所有请求路径
                 .allowedOrigins("http://localhost:3000", "http://qms198.online")  // 替换为前端实际访问的地址
-                .allowedMethods("GET", "POST", "PUT", "DELETE")  // 允许的 HTTP 方法
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")  // 允许的 HTTP 方法
                 .allowedHeaders("*")
                 .allowCredentials(true);  // 允许发送认证信息（如 cookies）
     }
+
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
