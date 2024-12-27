@@ -34,14 +34,15 @@ public class RecruitmentService implements IRecruitmentService{
     private TagRepository tagRepository;
 
     @Override
-    public Recruitment getRecruitment(Integer recruitmentId) {
-        return recruitmentRepository.findByRecruitmentId(recruitmentId);
+    public RecruitmentDto getRecruitment(Integer recruitmentId) {
+        RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId),jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
+        return recruitmentDto;
     }
 
-    @Override
-    public Recruitment getRecruitment(Integer recruitmentId, List<Long> tagIds) {
-        return recruitmentRepository.findByRecruitmentId(recruitmentId);
-    }
+//    @Override
+//    public RecruitmentDto getRecruitment(Integer recruitmentId, List<Long> tagIds) {
+//        return recruitmentRepository.findByRecruitmentId(recruitmentId);
+//    }
 
     @Override
     @Transactional
@@ -59,8 +60,6 @@ public class RecruitmentService implements IRecruitmentService{
         recruitmentPojo.setPublishTime(LocalDateTime.now());
 
         // 设置截止时间
-//        String pattern = "yyyy-MM-dd HH:mm:ss";
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern); // 生成时间解析对象
         recruitmentPojo.setRecruitmentDeadline(recruitmentDto.getRecruitmentDeadline());
 
         // 设置有效状态字
@@ -100,6 +99,7 @@ public class RecruitmentService implements IRecruitmentService{
         Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(0,pageable);
         return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
     }
+
     @Override
     @Transactional
     public RecruitmentDto editRecruitment(RecruitmentDto recruitmentDto) throws Exception {

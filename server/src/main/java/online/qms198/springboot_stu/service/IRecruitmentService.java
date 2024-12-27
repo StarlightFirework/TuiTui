@@ -9,9 +9,9 @@ import java.util.List;
 public interface IRecruitmentService {
 
     // 通过id查询单条记录
-    Recruitment getRecruitment(Integer recruitmentId);
+    RecruitmentDto getRecruitment(Integer recruitmentId);
 
-    Recruitment getRecruitment(Integer recruitmentId, List<Long> tagIds);
+//    RecruitmentDto getRecruitment(Integer recruitmentId, List<Long> tagIds);
 
     // 增加
     Recruitment addRecruitment(RecruitmentDto recruitmentDto) throws Exception;

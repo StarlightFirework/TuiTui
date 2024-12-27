@@ -16,4 +16,7 @@ public interface JobTagMappingRepository extends JpaRepository<JobTagMapping, In
 
     @Query("select j from JobTagMapping j where j.recruitment.recruitmentId = :recruitmentId")
     public List<JobTagMapping> findByRecruitmentRecruitmentId(Integer recruitmentId);
+
+    @Query("select j.tag.id from JobTagMapping j where j.recruitment.recruitmentId = :recruitmentId")
+    public List<Long> getTagIdFindByRecruitmentRecruitmentId(Integer recruitmentId);
 }
