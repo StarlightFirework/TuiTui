@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/JobTagMappingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/JobTagMappingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" afterDir="false" />
-    </list>
+    <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -253,7 +247,7 @@
       <workItem from="1735285151303" duration="1298000" />
       <workItem from="1735302554182" duration="1078000" />
       <workItem from="1735304264745" duration="1609000" />
-      <workItem from="1735306007159" duration="572000" />
+      <workItem from="1735306007159" duration="772000" />
     </task>
     <servers />
   </component>
