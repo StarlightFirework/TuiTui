@@ -6,18 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import online.qms198.springboot_stu.pojo.ResponseMessage;
 import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.RecruitmentPage;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentEditDto;
 import online.qms198.springboot_stu.pojo.dto.RecruitmentPageDto;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentTagsDto;
-import online.qms198.springboot_stu.repository.JobTagMappingRepository;
 import online.qms198.springboot_stu.service.IJobTagMappingService;
 import online.qms198.springboot_stu.service.IRecruitmentService;
-import online.qms198.springboot_stu.service.JobTagMappingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import java.time.format.DateTimeParseException;
-import java.util.List;
 import online.qms198.springboot_stu.pojo.Recruitment;
 @Slf4j
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
@@ -60,9 +54,9 @@ public class RecruitmentController {
     }
 
     @PutMapping
-    public ResponseMessage<RecruitmentTagsDto> edit(@RequestBody RecruitmentEditDto recruitmentEditDto) throws Exception {
-        System.out.println("控制层招聘信息主键id: " + recruitmentEditDto.getRecruitmentId());
-        RecruitmentTagsDto recruitmentNew = recruitmentService.editRecruitment(recruitmentEditDto);
+    public ResponseMessage<RecruitmentDto> edit(@RequestBody RecruitmentDto recruitmentDto) throws Exception {
+        System.out.println("控制层招聘信息主键id: " + recruitmentDto.getRecruitmentId());
+        RecruitmentDto recruitmentNew = recruitmentService.editRecruitment(recruitmentDto);
         return ResponseMessage.success(recruitmentNew);
     }
 

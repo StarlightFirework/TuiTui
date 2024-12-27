@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentEditDto;
-
+import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Data
 @AllArgsConstructor
@@ -53,22 +51,20 @@ public class Recruitment {
     @Column(name = "status")
     private Integer status; // 0：有效（默认值） 1：无效
 
-    public Recruitment(RecruitmentEditDto recruitmentEditDto, Recruitment recruitment){
-        this.recruitmentId = recruitmentEditDto.getRecruitmentId();
-        this.publisherAccount = recruitmentEditDto.getPublisherAccount();
-        this.publisherPhoneNumber = recruitmentEditDto.getPublisherPhoneNumber();
+    public Recruitment(RecruitmentDto recruitmentDto, Recruitment recruitment){
+        this.recruitmentId = RecruitmentDto.getRecruitmentId();
+        this.publisherAccount = RecruitmentDto.getPublisherAccount();
+        this.publisherPhoneNumber = RecruitmentDto.getPublisherPhoneNumber();
         this.publishTime = recruitment.getPublishTime();
 
-        String pattern = "yyyy-MM-dd HH:mm:ss";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern); // 生成时间解析对象
-        this.recruitmentDeadline = LocalDateTime.parse(recruitmentEditDto.getRecruitmentDeadlineStr(),formatter);
+        this.recruitmentDeadline = RecruitmentDto.getRecruitmentDeadline();
 
-        this.publishTitle = recruitmentEditDto.getPublishTitle();
-        this.briefIntroduction = recruitmentEditDto.getBriefIntroduction();
-        this.maxMonthlySalary = recruitmentEditDto.getMaxMonthlySalary();
-        this.minMonthlySalary = recruitmentEditDto.getMinMonthlySalary();
-        this.numberOfDeliveries = recruitmentEditDto.getNumberOfDeliveries();
-        this.getNumberOfDeliveries = recruitmentEditDto.getGetNumberOfDeliveries();
+        this.publishTitle = RecruitmentDto.getPublishTitle();
+        this.briefIntroduction = RecruitmentDto.getBriefIntroduction();
+        this.maxMonthlySalary = RecruitmentDto.getMaxMonthlySalary();
+        this.minMonthlySalary = RecruitmentDto.getMinMonthlySalary();
+        this.numberOfDeliveries = RecruitmentDto.getNumberOfDeliveries();
+        this.getNumberOfDeliveries = RecruitmentDto.getGetNumberOfDeliveries();
         this.status = recruitment.getStatus();
     }
 }
