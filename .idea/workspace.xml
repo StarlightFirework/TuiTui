@@ -5,42 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/RecruitmentEditDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/dto/RecruitmentTagsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/053e7981-6a96-4a41-8fdc-783f04730625.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/053e7981-6a96-4a41-8fdc-783f04730625.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/JobTagMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/JobTagMapping.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/Recruitment.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/Recruitment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/JobTagMappingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/JobTagMappingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/TagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IRecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/JobTagMappingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/JobTagMappingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/RecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/TagService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/RecruitmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/RecruitmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/JobTagMapping.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/JobTagMapping.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/Recruitment.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/Recruitment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/ResponseMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/ResponseMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/Tag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/JobTagMappingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/JobTagMappingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/RecruitmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/RecruitmentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/IRecruitmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/IRecruitmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/IUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/JobTagMappingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/JobTagMappingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/RecruitmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/RecruitmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/TagService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/TagService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/online/qms198/springboot_stu/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +50,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -114,7 +83,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SF/IdeaProjects/TuiTui&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SF/IdeaProjects/test&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -277,7 +246,13 @@
       <workItem from="1735009800810" duration="23000" />
       <workItem from="1735023864359" duration="2386000" />
       <workItem from="1735089505676" duration="13281000" />
-      <workItem from="1735111074054" duration="8907000" />
+      <workItem from="1735111074054" duration="9171000" />
+      <workItem from="1735175099428" duration="620000" />
+      <workItem from="1735176892819" duration="4705000" />
+      <workItem from="1735201166240" duration="45000" />
+      <workItem from="1735285151303" duration="1298000" />
+      <workItem from="1735302554182" duration="1078000" />
+      <workItem from="1735304264745" duration="1316000" />
     </task>
     <servers />
   </component>

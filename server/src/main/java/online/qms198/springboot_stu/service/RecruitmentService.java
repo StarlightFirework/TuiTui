@@ -2,8 +2,6 @@ package online.qms198.springboot_stu.service;
 
 import online.qms198.springboot_stu.pojo.*;
 import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentEditDto;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentTagsDto;
 import online.qms198.springboot_stu.repository.JobTagMappingRepository;
 import online.qms198.springboot_stu.repository.RecruitmentRepository;
 import online.qms198.springboot_stu.repository.TagRepository;
@@ -18,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -62,9 +59,9 @@ public class RecruitmentService implements IRecruitmentService{
         recruitmentPojo.setPublishTime(LocalDateTime.now());
 
         // 设置截止时间
-        String pattern = "yyyy-MM-dd HH:mm:ss";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern); // 生成时间解析对象
-        recruitmentPojo.setRecruitmentDeadline(LocalDateTime.parse(recruitmentDto.getRecruitmentDeadlineStr(),formatter));
+//        String pattern = "yyyy-MM-dd HH:mm:ss";
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern); // 生成时间解析对象
+        recruitmentPojo.setRecruitmentDeadline(recruitmentDto.getRecruitmentDeadline());
 
         // 设置有效状态字
         recruitmentPojo.setStatus(0);
@@ -83,6 +80,7 @@ public class RecruitmentService implements IRecruitmentService{
     }
 
     private void saveJobTagMappingsBatch(Recruitment savedRecruitment, List<Tag> tags) {
+
         if(tags.isEmpty()){
             return;
         }
@@ -96,44 +94,34 @@ public class RecruitmentService implements IRecruitmentService{
         }
     }
 
-
     @Override
     public RecruitmentPage getRecruitmentsByPage(Integer page , Integer size) {
         Pageable pageable = (Pageable) PageRequest.of(page,size);
         Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(0,pageable);
         return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
     }
-
-//    @Override
-//    public RecruitmentPage getRecruitmentsByTagIds(Integer page , Integer size) {
-//        Pageable pageable = (Pageable) PageRequest.of(page,size);
-//        Page<Recruitment> recruitmentPage = recruitmentRepository.findAll(pageable);
-//        return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
-//    }
-
     @Override
     @Transactional
-    public RecruitmentTagsDto editRecruitment(RecruitmentEditDto recruitmentEditDto) throws Exception {
+    public RecruitmentDto editRecruitment(RecruitmentDto recruitmentDto) throws Exception {
 
-        Recruitment recruitmentOld = recruitmentRepository.findByRecruitmentId(recruitmentEditDto.getRecruitmentId());
+        Recruitment recruitmentOld = recruitmentRepository.findByRecruitmentId(recruitmentDto.getRecruitmentId());
         if(recruitmentOld == null){
             throw new Exception("编辑的招聘信息不存在!");
         }
 
-        Recruitment recruitment = new Recruitment(recruitmentEditDto,recruitmentOld);
+        Recruitment recruitment = new Recruitment(recruitmentDto,recruitmentOld);
         // 覆盖原招聘信息
         Recruitment recruitmentNew = recruitmentRepository.save(recruitment);
         // 获取原招聘信息的标签映射对象
-        List<JobTagMapping> jobTagMappingOld = jobTagMappingRepository.findByRecruitmentRecruitmentId(recruitmentEditDto.getRecruitmentId());
+        List<JobTagMapping> jobTagMappingOld = jobTagMappingRepository.findByRecruitmentRecruitmentId(recruitmentDto.getRecruitmentId());
         // 提取原招聘信息的和标签映射对象中的标签id
         List<Long> tagsIdOld = new ArrayList<>();
         // 提取新招聘信息的标签id
-        List<Long> tagsIdNew = recruitmentEditDto.getTagIds();
+        List<Long> tagsIdNew = recruitmentDto.getTagIds();
         List<Tag> TagsNew = new ArrayList<>();
         for(JobTagMapping jobTagMapping : jobTagMappingOld){
             tagsIdOld.add(jobTagMapping.getTag().getId());
             jobTagMappingRepository.save(new JobTagMapping(jobTagMapping.getId(),jobTagMapping.getRecruitment(),jobTagMapping.getTag(), tagsIdNew.contains(jobTagMapping.getTag().getId())?0:1));
-
         }
 
         for(Long tagId:tagsIdNew){
@@ -142,7 +130,7 @@ public class RecruitmentService implements IRecruitmentService{
             }
         }
         saveJobTagMappingsBatch(recruitmentNew, TagsNew);
-        return new RecruitmentTagsDto(recruitmentOld,tagsIdNew);
+        return new RecruitmentDto(recruitmentOld,tagsIdNew);
     }
     @Override
     @Transactional
