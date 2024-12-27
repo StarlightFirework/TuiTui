@@ -41,6 +41,7 @@ public class RecruitmentController {
         Recruitment recruitmentNew = recruitmentService.getRecruitment(recruitmentId);
         return ResponseMessage.success(recruitmentNew);
     }
+
     @PostMapping()
     public ResponseMessage<RecruitmentPage> getRecruitments(@RequestBody RecruitmentPageDto recruitmentPageDto){
         RecruitmentPage recruitmentPage = new RecruitmentPage();

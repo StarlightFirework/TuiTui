@@ -83,6 +83,7 @@ public class RecruitmentService implements IRecruitmentService{
     }
 
     private void saveJobTagMappingsBatch(Recruitment savedRecruitment, List<Tag> tags) {
+
         if(tags.isEmpty()){
             return;
         }
@@ -96,20 +97,12 @@ public class RecruitmentService implements IRecruitmentService{
         }
     }
 
-
     @Override
     public RecruitmentPage getRecruitmentsByPage(Integer page , Integer size) {
         Pageable pageable = (Pageable) PageRequest.of(page,size);
         Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(0,pageable);
         return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
     }
-
-//    @Override
-//    public RecruitmentPage getRecruitmentsByTagIds(Integer page , Integer size) {
-//        Pageable pageable = (Pageable) PageRequest.of(page,size);
-//        Page<Recruitment> recruitmentPage = recruitmentRepository.findAll(pageable);
-//        return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
-//    }
 
     @Override
     @Transactional

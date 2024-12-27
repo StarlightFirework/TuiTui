@@ -57,7 +57,5 @@ public class RecruitmentTagsDto {
         this.getNumberOfDeliveries = recruitment.getGetNumberOfDeliveries();
         this.status = recruitment.getStatus();
         this.tagIds = tagIds;
-
-
     }
 }
