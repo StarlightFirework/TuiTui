@@ -100,7 +100,6 @@ public class RecruitmentService implements IRecruitmentService{
         Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(0,pageable);
         return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
     }
-
     @Override
     @Transactional
     public RecruitmentDto editRecruitment(RecruitmentDto recruitmentDto) throws Exception {
@@ -123,7 +122,6 @@ public class RecruitmentService implements IRecruitmentService{
         for(JobTagMapping jobTagMapping : jobTagMappingOld){
             tagsIdOld.add(jobTagMapping.getTag().getId());
             jobTagMappingRepository.save(new JobTagMapping(jobTagMapping.getId(),jobTagMapping.getRecruitment(),jobTagMapping.getTag(), tagsIdNew.contains(jobTagMapping.getTag().getId())?0:1));
-
         }
 
         for(Long tagId:tagsIdNew){

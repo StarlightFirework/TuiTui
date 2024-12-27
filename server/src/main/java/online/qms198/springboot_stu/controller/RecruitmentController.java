@@ -55,7 +55,6 @@ public class RecruitmentController {
 
     @PutMapping
     public ResponseMessage<RecruitmentDto> edit(@RequestBody RecruitmentDto recruitmentDto) throws Exception {
-        System.out.println("控制层招聘信息主键id: " + recruitmentDto.getRecruitmentId());
         RecruitmentDto recruitmentNew = recruitmentService.editRecruitment(recruitmentDto);
         return ResponseMessage.success(recruitmentNew);
     }

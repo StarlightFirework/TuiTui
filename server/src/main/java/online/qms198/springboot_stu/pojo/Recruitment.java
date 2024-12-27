@@ -52,19 +52,17 @@ public class Recruitment {
     private Integer status; // 0：有效（默认值） 1：无效
 
     public Recruitment(RecruitmentDto recruitmentDto, Recruitment recruitment){
-        this.recruitmentId = RecruitmentDto.getRecruitmentId();
-        this.publisherAccount = RecruitmentDto.getPublisherAccount();
-        this.publisherPhoneNumber = RecruitmentDto.getPublisherPhoneNumber();
+        this.recruitmentId = recruitmentDto.getRecruitmentId();
+        this.publisherAccount = recruitmentDto.getPublisherAccount();
+        this.publisherPhoneNumber = recruitmentDto.getPublisherPhoneNumber();
         this.publishTime = recruitment.getPublishTime();
-
-        this.recruitmentDeadline = RecruitmentDto.getRecruitmentDeadline();
-
-        this.publishTitle = RecruitmentDto.getPublishTitle();
-        this.briefIntroduction = RecruitmentDto.getBriefIntroduction();
-        this.maxMonthlySalary = RecruitmentDto.getMaxMonthlySalary();
-        this.minMonthlySalary = RecruitmentDto.getMinMonthlySalary();
-        this.numberOfDeliveries = RecruitmentDto.getNumberOfDeliveries();
-        this.getNumberOfDeliveries = RecruitmentDto.getGetNumberOfDeliveries();
+        this.recruitmentDeadline = recruitmentDto.getRecruitmentDeadline();
+        this.publishTitle = recruitmentDto.getPublishTitle();
+        this.briefIntroduction = recruitmentDto.getBriefIntroduction();
+        this.maxMonthlySalary = recruitmentDto.getMaxMonthlySalary();
+        this.minMonthlySalary = recruitmentDto.getMinMonthlySalary();
+        this.numberOfDeliveries = recruitmentDto.getNumberOfDeliveries();
+        this.getNumberOfDeliveries = recruitmentDto.getGetNumberOfDeliveries();
         this.status = recruitment.getStatus();
     }
 }
