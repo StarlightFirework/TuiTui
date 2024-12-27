@@ -36,9 +36,9 @@ public class RecruitmentController {
     }
 
     @GetMapping("/{recruitmentId}")
-    public ResponseMessage<Recruitment> getById(@PathVariable Integer recruitmentId) {
-        Recruitment recruitmentNew = recruitmentService.getRecruitment(recruitmentId);
-        return ResponseMessage.success(recruitmentNew);
+    public ResponseMessage<RecruitmentDto> getById(@PathVariable Integer recruitmentId) {
+        RecruitmentDto recruitmentDtoNew = recruitmentService.getRecruitment(recruitmentId);
+        return ResponseMessage.success(recruitmentDtoNew);
     }
 
     @PostMapping()
