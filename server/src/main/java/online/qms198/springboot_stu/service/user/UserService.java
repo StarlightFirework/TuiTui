@@ -1,12 +1,9 @@
-package online.qms198.springboot_stu.service;
+package online.qms198.springboot_stu.service.user;
 
-import online.qms198.springboot_stu.controller.UserController;
-import online.qms198.springboot_stu.pojo.User;
-import online.qms198.springboot_stu.pojo.dto.UserRegisterDto;
+import online.qms198.springboot_stu.pojo.user.User;
+import online.qms198.springboot_stu.dto.user.UserRegisterDto;
 import online.qms198.springboot_stu.repository.UserRepository;
 import online.qms198.springboot_stu.utils.EncryptionUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package online.qms198.springboot_stu.security;
 
-import online.qms198.springboot_stu.pojo.User;
-import online.qms198.springboot_stu.service.UserService;
+import online.qms198.springboot_stu.pojo.user.User;
+import online.qms198.springboot_stu.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

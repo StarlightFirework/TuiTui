@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.pojo;
+package online.qms198.springboot_stu.pojo.recruitment;
 
 
 import jakarta.persistence.*;

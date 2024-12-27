@@ -1,15 +1,12 @@
 package online.qms198.springboot_stu.controller;
 
 //import cn.hutool.jwt.JWT;
-import cn.hutool.jwt.JWTUtil;
-import io.jsonwebtoken.Jwt;
 import jakarta.validation.Valid;
-import online.qms198.springboot_stu.constants.MyConstant;
-import online.qms198.springboot_stu.pojo.ResponseMessage;
-import online.qms198.springboot_stu.pojo.User;
-import online.qms198.springboot_stu.pojo.dto.UserLoginDto;
-import online.qms198.springboot_stu.pojo.dto.UserRegisterDto;
-import online.qms198.springboot_stu.service.IUserService;
+import online.qms198.springboot_stu.pojo.common.ResponseMessage;
+import online.qms198.springboot_stu.pojo.user.User;
+import online.qms198.springboot_stu.dto.user.UserLoginDto;
+import online.qms198.springboot_stu.dto.user.UserRegisterDto;
+import online.qms198.springboot_stu.service.user.IUserService;
 import online.qms198.springboot_stu.utils.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import java.nio.charset.StandardCharsets;
 
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类

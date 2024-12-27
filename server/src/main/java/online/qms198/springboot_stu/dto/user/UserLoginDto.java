@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.pojo.dto;
+package online.qms198.springboot_stu.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

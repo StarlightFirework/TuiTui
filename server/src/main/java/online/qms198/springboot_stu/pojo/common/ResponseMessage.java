@@ -1,6 +1,5 @@
-package online.qms198.springboot_stu.pojo;
+package online.qms198.springboot_stu.pojo.common;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;

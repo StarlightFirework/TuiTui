@@ -1,7 +1,10 @@
-package online.qms198.springboot_stu.service;
+package online.qms198.springboot_stu.service.recruitment;
 
-import online.qms198.springboot_stu.pojo.*;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
+import online.qms198.springboot_stu.pojo.recruitment.JobTagMapping;
+import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
+import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
+import online.qms198.springboot_stu.pojo.recruitment.Tag;
 import online.qms198.springboot_stu.repository.JobTagMappingRepository;
 import online.qms198.springboot_stu.repository.RecruitmentRepository;
 import online.qms198.springboot_stu.repository.TagRepository;
@@ -14,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 

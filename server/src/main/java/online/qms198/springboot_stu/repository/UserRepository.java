@@ -1,6 +1,6 @@
 package online.qms198.springboot_stu.repository;
 
-import online.qms198.springboot_stu.pojo.User;
+import online.qms198.springboot_stu.pojo.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -2,8 +2,8 @@ package online.qms198.springboot_stu.exception;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import online.qms198.springboot_stu.pojo.PasswordMatch;
-import online.qms198.springboot_stu.pojo.dto.UserRegisterDto;
+import online.qms198.springboot_stu.pojo.user.PasswordMatch;
+import online.qms198.springboot_stu.dto.user.UserRegisterDto;
 
 public class PasswordMatchValidator implements ConstraintValidator<PasswordMatch, UserRegisterDto> {
 

@@ -1,10 +1,8 @@
-package online.qms198.springboot_stu.service;
+package online.qms198.springboot_stu.service.recruitment;
 
-import online.qms198.springboot_stu.pojo.Recruitment;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
-import online.qms198.springboot_stu.pojo.RecruitmentPage;
-
-import java.util.List;
+import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
+import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
 
 public interface IRecruitmentService {
 

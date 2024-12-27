@@ -1,7 +1,7 @@
-package online.qms198.springboot_stu.service;
+package online.qms198.springboot_stu.service.recruitment;
 
 
-import online.qms198.springboot_stu.pojo.RecruitmentPage;
+import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
 import online.qms198.springboot_stu.repository.JobTagMappingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;

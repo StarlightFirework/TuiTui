@@ -3,7 +3,7 @@ package online.qms198.springboot_stu.exception;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import online.qms198.springboot_stu.pojo.ResponseMessage;
+import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

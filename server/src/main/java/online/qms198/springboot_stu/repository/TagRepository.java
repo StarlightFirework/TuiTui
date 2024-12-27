@@ -1,6 +1,6 @@
 package online.qms198.springboot_stu.repository;
 
-import online.qms198.springboot_stu.pojo.Tag;
+import online.qms198.springboot_stu.pojo.recruitment.Tag;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

@@ -1,9 +1,8 @@
-package online.qms198.springboot_stu.pojo.dto;
+package online.qms198.springboot_stu.dto.recruitment;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import online.qms198.springboot_stu.pojo.Recruitment;
 
 import java.util.List;
 

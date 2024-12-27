@@ -1,5 +1,6 @@
 package online.qms198.springboot_stu.config;
 
+import online.qms198.springboot_stu.filter.JwtAuthenticationTokenFilter;
 import online.qms198.springboot_stu.security.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -1,10 +1,10 @@
-package online.qms198.springboot_stu.pojo;
+package online.qms198.springboot_stu.pojo.recruitment;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import online.qms198.springboot_stu.pojo.dto.RecruitmentDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import java.time.LocalDateTime;
 
 @Data

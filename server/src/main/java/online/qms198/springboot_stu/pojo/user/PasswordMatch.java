@@ -1,8 +1,7 @@
-package online.qms198.springboot_stu.pojo;
+package online.qms198.springboot_stu.pojo.user;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
-import online.qms198.springboot_stu.pojo.PasswordMatchValidator;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

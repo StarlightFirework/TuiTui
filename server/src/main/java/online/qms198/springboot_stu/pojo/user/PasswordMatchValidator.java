@@ -1,8 +1,8 @@
-package online.qms198.springboot_stu.pojo;
+package online.qms198.springboot_stu.pojo.user;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import online.qms198.springboot_stu.pojo.dto.UserRegisterDto; // 根据实际包路径修改
+import online.qms198.springboot_stu.dto.user.UserRegisterDto; // 根据实际包路径修改
 
 public class PasswordMatchValidator implements ConstraintValidator<PasswordMatch, UserRegisterDto> {
 

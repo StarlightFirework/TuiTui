@@ -1,13 +1,12 @@
-package online.qms198.springboot_stu.pojo.dto;
+package online.qms198.springboot_stu.dto.user;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import online.qms198.springboot_stu.pojo.PasswordMatch;
+import online.qms198.springboot_stu.pojo.user.PasswordMatch;
 import org.hibernate.validator.constraints.Length;
 
 @Data

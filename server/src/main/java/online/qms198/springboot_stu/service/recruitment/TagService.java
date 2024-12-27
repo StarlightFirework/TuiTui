@@ -1,6 +1,6 @@
-package online.qms198.springboot_stu.service;
+package online.qms198.springboot_stu.service.recruitment;
 
-import online.qms198.springboot_stu.pojo.Tag;
+import online.qms198.springboot_stu.pojo.recruitment.Tag;
 import online.qms198.springboot_stu.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TagService {

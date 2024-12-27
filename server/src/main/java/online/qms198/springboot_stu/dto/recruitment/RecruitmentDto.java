@@ -1,14 +1,13 @@
-package online.qms198.springboot_stu.pojo.dto;
+package online.qms198.springboot_stu.dto.recruitment;
 
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import online.qms198.springboot_stu.pojo.Recruitment;
+import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
 import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;

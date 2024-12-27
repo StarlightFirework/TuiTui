@@ -1,7 +1,7 @@
-package online.qms198.springboot_stu.service;
+package online.qms198.springboot_stu.service.user;
 
-import online.qms198.springboot_stu.pojo.User;
-import online.qms198.springboot_stu.pojo.dto.UserRegisterDto;
+import online.qms198.springboot_stu.pojo.user.User;
+import online.qms198.springboot_stu.dto.user.UserRegisterDto;
 
 public interface IUserService {
     // 插入用户
