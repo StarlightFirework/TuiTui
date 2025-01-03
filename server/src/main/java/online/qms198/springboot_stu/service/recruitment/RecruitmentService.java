@@ -1,5 +1,6 @@
 package online.qms198.springboot_stu.service.recruitment;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.JobTagMapping;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
@@ -35,9 +36,15 @@ public class RecruitmentService implements IRecruitmentService{
     @Autowired
     private TagRepository tagRepository;
 
+    @Autowired
+    private RecruitmentStatisticsService recruitmentStatisticsService;
     @Override
     public RecruitmentDto getRecruitment(Integer recruitmentId) {
         RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId),jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
+        // 增加该条招聘信息的查询次数
+        List<Integer> recruitmentIds = new ArrayList<Integer>();
+        recruitmentIds.add(recruitmentId);
+        recruitmentStatisticsService.batchUpdateQueryCount(recruitmentIds);
         return recruitmentDto;
     }
 
@@ -75,8 +82,6 @@ public class RecruitmentService implements IRecruitmentService{
             saveJobTagMappingsBatch(savedRecruitment, tags);
         }
 
-
-
         return savedRecruitment;
     }
 
@@ -99,7 +104,17 @@ public class RecruitmentService implements IRecruitmentService{
     public RecruitmentPage getRecruitmentsByPage(Integer page , Integer size) {
         Pageable pageable = (Pageable) PageRequest.of(page,size);
         Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(0,pageable);
-        return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentPage.getContent());
+        // 获得分页查询的招聘信息
+        List<Recruitment> recruitments = recruitmentPage.getContent();
+        // 提取分页查询的招聘信息的Id
+        List<Integer> recruitmentIds = new ArrayList<>();
+        for(Recruitment recruitment : recruitments){
+            recruitmentIds.add(recruitment.getRecruitmentId());
+        }
+        // 增加这些招聘信息的查询次数
+        recruitmentStatisticsService.batchUpdateQueryCount(recruitmentIds);
+
+        return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitments);
     }
 
     @Override
