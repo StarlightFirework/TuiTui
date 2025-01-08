@@ -24,6 +24,6 @@ public class JobTagMapping {
     @JoinColumn(name = "tag_id")
     private Tag tag;
 
-    @Column(name = "status")
+    @Column(name = "status" , columnDefinition = "INT DEFAULT 0")
     private Integer status;
 }

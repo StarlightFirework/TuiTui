@@ -9,7 +9,9 @@ import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
 import online.qms198.springboot_stu.service.recruitment.IJobTagMappingService;
 import online.qms198.springboot_stu.service.recruitment.IRecruitmentService;
+import online.qms198.springboot_stu.service.recruitment.IRecruitmentStatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
@@ -28,6 +30,9 @@ public class RecruitmentController {
     IRecruitmentService recruitmentService;
     @Autowired
     IJobTagMappingService jobTagMappingService;
+
+    @Autowired
+    IRecruitmentStatisticsService recruitmentStatisticsService;
     @PostMapping("/insert")
     public ResponseMessage<Recruitment> add(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
             Recruitment recruitmentNew = recruitmentService.addRecruitment(recruitmentDto);
@@ -67,5 +72,21 @@ public class RecruitmentController {
         }
         return ResponseMessage.error();
     }
+    @GetMapping("/statistics/view")
+    public ResponseMessage<Recruitment> addViewCount(Integer recruitmentId){
+        recruitmentStatisticsService.updateViewCount(recruitmentId);
+        return ResponseMessage.success();
+    }
 
+    @GetMapping("/statistics/collectionAdd")
+    public ResponseMessage<Recruitment> addCollectionCount(@RequestParam(name = "recruitmentId") Integer recruitmentId){
+        recruitmentStatisticsService.updateCollectionCountAdd(recruitmentId);
+        return ResponseMessage.success();
+    }
+
+    @GetMapping("/statistics/collectionMinus")
+    public ResponseMessage<Recruitment> minusCollectionCount(@RequestParam(name = "recruitmentId") Integer recruitmentId){
+        recruitmentStatisticsService.updateCollectionCountMinus(recruitmentId);
+        return ResponseMessage.success();
+    }
 }

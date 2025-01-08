@@ -48,7 +48,7 @@ public class Recruitment {
     @Column(name = "number_of_recruits")
     private Integer getNumberOfDeliveries;
 
-    @Column(name = "status")
+    @Column(name = "status" , columnDefinition = "INT DEFAULT 0")
     private Integer status; // 0：有效（默认值） 1：无效
 
     public Recruitment(RecruitmentDto recruitmentDto, Recruitment recruitment){

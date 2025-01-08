@@ -21,4 +21,5 @@ public interface IRecruitmentService {
 
     // 删除
     public boolean delete(Integer recruitmentId);
+
 }

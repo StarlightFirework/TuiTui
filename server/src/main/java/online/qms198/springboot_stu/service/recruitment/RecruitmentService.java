@@ -38,6 +38,7 @@ public class RecruitmentService implements IRecruitmentService{
 
     @Autowired
     private RecruitmentStatisticsService recruitmentStatisticsService;
+
     @Override
     public RecruitmentDto getRecruitment(Integer recruitmentId) {
         RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId),jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
@@ -53,6 +54,7 @@ public class RecruitmentService implements IRecruitmentService{
 //        return recruitmentRepository.findByRecruitmentId(recruitmentId);
 //    }
 
+    // 添加招聘信息
     @Override
     @Transactional
     public Recruitment addRecruitment(RecruitmentDto recruitmentDto) throws Exception {
@@ -71,8 +73,8 @@ public class RecruitmentService implements IRecruitmentService{
         // 设置截止时间
         recruitmentPojo.setRecruitmentDeadline(recruitmentDto.getRecruitmentDeadline());
 
-        // 设置有效状态字
-        recruitmentPojo.setStatus(0);
+        // 设置待审核状态字
+        recruitmentPojo.setStatus(2);
 
         // 保存招聘信息
         Recruitment savedRecruitment = recruitmentRepository.save(recruitmentPojo);
@@ -159,4 +161,6 @@ public class RecruitmentService implements IRecruitmentService{
         recruitment.setStatus(1);
         return recruitmentRepository.save(recruitment) != null;
     }
+
+
 }
