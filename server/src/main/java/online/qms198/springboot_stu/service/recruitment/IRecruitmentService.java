@@ -1,5 +1,6 @@
 package online.qms198.springboot_stu.service.recruitment;
 
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
@@ -21,5 +22,11 @@ public interface IRecruitmentService {
 
     // 删除
     public boolean delete(Integer recruitmentId);
+
+    // 获取待审核的招聘信息
+    public RecruitmentPage getAuditRecruitmentsByPage(Integer page , Integer size);
+
+    // 设置招聘信息审核结果
+    public void updateAuditRecruitment(RecruitmentAuditDto recruitmentAuditDto);
 
 }

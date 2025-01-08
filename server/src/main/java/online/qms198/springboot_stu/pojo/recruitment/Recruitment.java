@@ -25,7 +25,10 @@ public class Recruitment {
     private String publisherPhoneNumber;
 
     @Column(name = "publish_time")
-    private LocalDateTime publishTime; // 招聘发布日期时间
+    private LocalDateTime publishTime; // 发布时间
+
+    @Column(name = "edit_time")
+    private LocalDateTime editTime;// 上次编辑时间
 
     @Column(name = "recruitment_deadline") // 招聘截止时间
     private LocalDateTime recruitmentDeadline;
@@ -56,6 +59,7 @@ public class Recruitment {
         this.publisherAccount = recruitmentDto.getPublisherAccount();
         this.publisherPhoneNumber = recruitmentDto.getPublisherPhoneNumber();
         this.publishTime = recruitment.getPublishTime();
+        this.editTime = recruitment.getEditTime();
         this.recruitmentDeadline = recruitmentDto.getRecruitmentDeadline();
         this.publishTitle = recruitmentDto.getPublishTitle();
         this.briefIntroduction = recruitmentDto.getBriefIntroduction();

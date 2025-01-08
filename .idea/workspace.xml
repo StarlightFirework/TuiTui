@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/recruitment/RecruitmentAuditDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentAudit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentAuditRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/JobTagMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/JobTagMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/recruitment/RecruitmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/recruitment/RecruitmentDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/Recruitment.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/Recruitment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentStatisticsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentStatisticsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentStatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentStatisticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/JobTagMappingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/JobTagMappingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentStatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentStatisticsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.properties" afterDir="false" />
     </list>
@@ -268,7 +268,7 @@
       <workItem from="1735349729038" duration="713000" />
       <workItem from="1735904031614" duration="6990000" />
       <workItem from="1736233857547" duration="5283000" />
-      <workItem from="1736300907756" duration="6196000" />
+      <workItem from="1736300907756" duration="20284000" />
     </task>
     <servers />
   </component>

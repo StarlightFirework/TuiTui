@@ -3,6 +3,7 @@ package online.qms198.springboot_stu.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
@@ -36,7 +37,6 @@ public class RecruitmentController {
     @PostMapping("/insert")
     public ResponseMessage<Recruitment> add(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
             Recruitment recruitmentNew = recruitmentService.addRecruitment(recruitmentDto);
-
             return ResponseMessage.success(recruitmentNew);
     }
 
@@ -79,14 +79,25 @@ public class RecruitmentController {
     }
 
     @GetMapping("/statistics/collectionAdd")
-    public ResponseMessage<Recruitment> addCollectionCount(@RequestParam(name = "recruitmentId") Integer recruitmentId){
+    public ResponseMessage<Recruitment> addCollectionCount(Integer recruitmentId){
         recruitmentStatisticsService.updateCollectionCountAdd(recruitmentId);
         return ResponseMessage.success();
     }
 
     @GetMapping("/statistics/collectionMinus")
-    public ResponseMessage<Recruitment> minusCollectionCount(@RequestParam(name = "recruitmentId") Integer recruitmentId){
+    public ResponseMessage<Recruitment> minusCollectionCount(Integer recruitmentId){
         recruitmentStatisticsService.updateCollectionCountMinus(recruitmentId);
+        return ResponseMessage.success();
+    }
+
+    @GetMapping("/audit")
+    public ResponseMessage<RecruitmentPage> getAuditRecruitments(Integer page, Integer size){
+        return ResponseMessage.success(recruitmentService.getAuditRecruitmentsByPage(page,size));
+    }
+
+    @PostMapping("/audit")
+    public ResponseMessage<Recruitment> updateAuditRecruitment(@RequestBody RecruitmentAuditDto recruitmentAuditDto){
+        recruitmentService.updateAuditRecruitment(recruitmentAuditDto);
         return ResponseMessage.success();
     }
 }

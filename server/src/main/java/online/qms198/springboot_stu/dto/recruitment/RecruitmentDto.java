@@ -28,6 +28,8 @@ public class RecruitmentDto {
 
     private LocalDateTime publishTime; // 招聘发布日期时间
 
+    private LocalDateTime editTime; // 上次编辑时间
+
     private LocalDateTime recruitmentDeadline; // 招聘截至日期时间
 
     @NotBlank(message = "招聘标题不能为空")
@@ -56,6 +58,7 @@ public class RecruitmentDto {
         this.publisherPhoneNumber = recruitment.getPublisherPhoneNumber();
         this.publishTime = recruitment.getPublishTime();
         this.recruitmentDeadline = recruitment.getRecruitmentDeadline();
+        this.editTime = recruitment.getEditTime();
         this.publishTitle = recruitment.getPublishTitle();
         this.briefIntroduction = recruitment.getBriefIntroduction();
         this.maxMonthlySalary = recruitment.getMaxMonthlySalary();
