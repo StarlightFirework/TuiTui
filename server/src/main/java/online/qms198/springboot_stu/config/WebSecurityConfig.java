@@ -79,6 +79,7 @@ public class WebSecurityConfig {
                             //对登录注册允许匿名访问
                         .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount").permitAll()
 
+
                         // OPTIONS 请求允许匿名访问（跨域预检）
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
 
