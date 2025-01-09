@@ -79,6 +79,10 @@ public class WebSecurityConfig {
                             //对登录注册允许匿名访问
                         .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount").permitAll()
 
+                        // 管理员才有权限对标签编辑
+//                        .requestMatchers("tags", "tags/", "tags/search", "tags/id").hasRole("ADMIN")
+
+
                         // OPTIONS 请求允许匿名访问（跨域预检）
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
 

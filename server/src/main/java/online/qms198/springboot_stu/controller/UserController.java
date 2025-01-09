@@ -55,7 +55,7 @@ public class UserController {
         User authenticatedUser = userService.authenticate(userLoginDto.getUserAccount(), userLoginDto.getPassword());
 
         if (authenticatedUser != null) {
-            String token = JwtUtil.createToken(authenticatedUser.getUserAccount());
+            String token = JwtUtil.createToken(authenticatedUser.getUserAccount(), authenticatedUser.getUserIdentity());
 
             logger.info("Generated JWT token: {}", token);
             // 创建响应消息
