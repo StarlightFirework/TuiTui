@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/recruitment/RecruitmentAuditDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentAudit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentAuditRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentGroupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/UserRecruitmentGroupMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentGroupRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentGroupService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentGroupService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/recruitment/RecruitmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/recruitment/RecruitmentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/Recruitment.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/Recruitment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/recruitment/RecruitmentPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/RecruitmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/JobTagMappingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/JobTagMappingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/TagService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,6 +33,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/config/WebSecurityConfig.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/server/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -268,7 +264,9 @@
       <workItem from="1735349729038" duration="713000" />
       <workItem from="1735904031614" duration="6990000" />
       <workItem from="1736233857547" duration="5283000" />
-      <workItem from="1736300907756" duration="20284000" />
+      <workItem from="1736300907756" duration="20568000" />
+      <workItem from="1736343037767" duration="283000" />
+      <workItem from="1736397162593" duration="3618000" />
     </task>
     <servers />
   </component>
@@ -280,7 +278,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

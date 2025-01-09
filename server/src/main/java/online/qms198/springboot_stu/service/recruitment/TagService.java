@@ -29,4 +29,7 @@ public class TagService {
             throw new IllegalArgumentException("部分标签不存在！");
         }
     }
+
+    public static interface IRecruitmentGroupService {
+    }
 }
