@@ -1,12 +1,11 @@
 package online.qms198.springboot_stu.service.recruitment;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
-import online.qms198.springboot_stu.pojo.recruitment.JobTagMapping;
-import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
-import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
-import online.qms198.springboot_stu.pojo.recruitment.Tag;
+import online.qms198.springboot_stu.pojo.recruitment.*;
 import online.qms198.springboot_stu.repository.JobTagMappingRepository;
+import online.qms198.springboot_stu.repository.RecruitmentAuditRepository;
 import online.qms198.springboot_stu.repository.RecruitmentRepository;
 import online.qms198.springboot_stu.repository.TagRepository;
 import org.springframework.beans.BeanUtils;
@@ -14,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,6 +38,10 @@ public class RecruitmentService implements IRecruitmentService{
 
     @Autowired
     private RecruitmentStatisticsService recruitmentStatisticsService;
+
+    @Autowired
+    private RecruitmentAuditRepository recruitmentAuditRepository;
+
     @Override
     public RecruitmentDto getRecruitment(Integer recruitmentId) {
         RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId),jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
@@ -53,6 +57,7 @@ public class RecruitmentService implements IRecruitmentService{
 //        return recruitmentRepository.findByRecruitmentId(recruitmentId);
 //    }
 
+    // 添加招聘信息
     @Override
     @Transactional
     public Recruitment addRecruitment(RecruitmentDto recruitmentDto) throws Exception {
@@ -68,11 +73,14 @@ public class RecruitmentService implements IRecruitmentService{
         // 设置发布时间
         recruitmentPojo.setPublishTime(LocalDateTime.now());
 
+        // 设置编辑时间
+        recruitmentPojo.setEditTime(LocalDateTime.now());
+
         // 设置截止时间
         recruitmentPojo.setRecruitmentDeadline(recruitmentDto.getRecruitmentDeadline());
 
-        // 设置有效状态字
-        recruitmentPojo.setStatus(0);
+        // 设置待审核状态字
+        recruitmentPojo.setStatus(2);
 
         // 保存招聘信息
         Recruitment savedRecruitment = recruitmentRepository.save(recruitmentPojo);
@@ -104,6 +112,7 @@ public class RecruitmentService implements IRecruitmentService{
     public RecruitmentPage getRecruitmentsByPage(Integer page , Integer size) {
         Pageable pageable = (Pageable) PageRequest.of(page,size);
         Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(0,pageable);
+
         // 获得分页查询的招聘信息
         List<Recruitment> recruitments = recruitmentPage.getContent();
         // 提取分页查询的招聘信息的Id
@@ -114,7 +123,7 @@ public class RecruitmentService implements IRecruitmentService{
         // 增加这些招聘信息的查询次数
         recruitmentStatisticsService.batchUpdateQueryCount(recruitmentIds);
 
-        return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitments);
+        return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentChangeRecruitmentDto(recruitments));
     }
 
     @Override
@@ -127,6 +136,10 @@ public class RecruitmentService implements IRecruitmentService{
         }
 
         Recruitment recruitment = new Recruitment(recruitmentDto,recruitmentOld);
+        // 设置编辑时间
+        recruitment.setEditTime(LocalDateTime.now());
+        // 设置状态为审核
+        recruitment.setStatus(2);
         // 覆盖原招聘信息
         Recruitment recruitmentNew = recruitmentRepository.save(recruitment);
         // 获取原招聘信息的标签映射对象
@@ -146,6 +159,7 @@ public class RecruitmentService implements IRecruitmentService{
                 TagsNew.add(tagRepository.findById(tagId).orElse(null));
             }
         }
+
         saveJobTagMappingsBatch(recruitmentNew, TagsNew);
         return new RecruitmentDto(recruitmentOld,tagsIdNew);
     }
@@ -158,5 +172,36 @@ public class RecruitmentService implements IRecruitmentService{
         }
         recruitment.setStatus(1);
         return recruitmentRepository.save(recruitment) != null;
+    }
+
+    @Override
+    public RecruitmentPage getAuditRecruitmentsByPage(Integer page , Integer size){
+        Pageable pageable = (Pageable) PageRequest.of(page,size).withSort(Sort.Direction.ASC,"editTime");
+        Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(2,pageable);
+        return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentChangeRecruitmentDto(recruitmentPage.getContent()));
+    }
+
+    private List<RecruitmentDto> recruitmentChangeRecruitmentDto(List<Recruitment> recruitments){
+        List<RecruitmentDto> recruitmentDtos = new ArrayList<RecruitmentDto>();
+        // 将recruitment转为recruitmentDto
+        for(Recruitment recruitment : recruitments){
+            recruitmentDtos.add(new RecruitmentDto(recruitment,jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitment.getRecruitmentId())));
+        }
+        return recruitmentDtos;
+    }
+
+    public void updateAuditRecruitment(RecruitmentAuditDto recruitmentAuditDto){
+        if(recruitmentAuditDto.getAuditCode() == 0){
+            recruitmentRepository.updateRecruitmentApproved(recruitmentAuditDto.getRecruitmentId());
+        }else{
+            recruitmentRepository.updateRecruitmentReject(recruitmentAuditDto.getRecruitmentId());
+            RecruitmentAudit recruitmentAudit = recruitmentAuditRepository.findByRecruitmentId(recruitmentAuditDto.getRecruitmentId());
+            if( recruitmentAudit == null ){
+                recruitmentAuditRepository.save(new RecruitmentAudit(recruitmentAuditDto,recruitmentRepository.findByRecruitmentId(recruitmentAuditDto.getRecruitmentId())));
+                return;
+            }
+            recruitmentAudit.setDescription(recruitmentAuditDto.getDescription());
+            recruitmentAuditRepository.save(recruitmentAudit);
+        }
     }
 }

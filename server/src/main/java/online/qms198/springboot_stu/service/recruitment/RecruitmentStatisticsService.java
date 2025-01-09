@@ -18,4 +18,19 @@ public class RecruitmentStatisticsService implements IRecruitmentStatisticsServi
             recruitmentStatisticsRepository.updateQueryCount(recruitmentId);
         }
     }
+
+    @Override
+    public void updateViewCount(Integer recruitmentId){
+        recruitmentStatisticsRepository.updateViewCount(recruitmentId);
+    }
+
+    @Override
+    public void updateCollectionCountAdd(Integer recruitmentId){
+        recruitmentStatisticsRepository.updateCollectionCountAdd(recruitmentId);
+    }
+
+    @Override
+    public void updateCollectionCountMinus(Integer recruitmentId) {
+        recruitmentStatisticsRepository.updateCollectionCountMinus(recruitmentId);
+    }
 }
