@@ -3,7 +3,6 @@ package online.qms198.springboot_stu.pojo.user;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 

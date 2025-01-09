@@ -17,13 +17,13 @@ public class RecruitmentStatistics {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "query_count" , columnDefinition = "bigint DEFAULT 0")
+    @Column(name = "query_count" , columnDefinition = "bigint DEFAULT 0 CHECK (query_count >= 0)")
     private Long queryCount;
 
-    @Column(name = "view_count" , columnDefinition = "bigint DEFAULT 0")
+    @Column(name = "view_count" , columnDefinition = "bigint DEFAULT 0 CHECK (view_count >= 0)")
     private Long viewCount;
 
-    @Column(name = "collection_count" , columnDefinition = "bigint DEFAULT 0")
+    @Column(name = "collection_count" , columnDefinition = "bigint DEFAULT 0 CHECK (collection_count >= 0)")
     private Long collectionCount;
 
     @Column(name = "heat" , columnDefinition = "INT DEFAULT 0")
