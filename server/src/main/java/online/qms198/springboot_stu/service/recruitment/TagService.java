@@ -23,10 +23,33 @@ public class TagService {
 //    public Tag getTagById(Long tagId){
 //        tagRepository.findById(tagId);
 //    }
-    public void validateTagsExist(List<Long> tagIds) {
-        List<Tag> tags = getTagsByIds(tagIds);
-        if (tags.size() != tagIds.size()) {
-            throw new IllegalArgumentException("部分标签不存在！");
+    public Tag createTag(Tag tag) {
+        tag.setStatus(0);
+        return tagRepository.save(tag);
+    }
+
+    // 根据ID查询Tag
+    public Tag getTagById(Long id) {
+        return tagRepository.findById(id).orElseThrow(() -> new RuntimeException("Tag not found with ID: " + id));
+    }
+
+    // 更新Tag
+    public Tag updateTag(Long id, Tag updatedTag) {
+        Tag tag = getTagById(id);
+        tag.setName(updatedTag.getName());
+        return tagRepository.save(tag);
+    }
+
+    // 删除Tag
+    public void deleteTag(Long id) {
+        if (!tagRepository.existsById(id)) {
+            throw new RuntimeException("Tag not found with ID: " + id);
         }
+        tagRepository.deleteById(id);
+    }
+
+    // 模糊搜索Tag
+    public List<Tag> searchTagsByName(String keyword) {
+        return tagRepository.findByNameContaining(keyword);
     }
 }

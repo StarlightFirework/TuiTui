@@ -6,12 +6,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface TagRepository extends CrudRepository<Tag, Long> {
-    Tag findByName(String name);
 
     @Query("select t from Tag t where t.id = :id")
     Optional<Tag> findById(@Param("id") Long id);
+
+    List<Tag> findByNameContaining(String keyword); // 根据名称模糊查询
 }
