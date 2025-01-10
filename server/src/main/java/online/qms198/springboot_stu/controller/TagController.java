@@ -46,7 +46,7 @@ public class TagController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Tag> GetTagById(@PathVariable Long id) {
         return ResponseEntity.ok(tagService.getTagById(id));
     }

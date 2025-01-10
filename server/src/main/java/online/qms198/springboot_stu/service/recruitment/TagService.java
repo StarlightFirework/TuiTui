@@ -37,6 +37,7 @@ public class TagService {
     public Tag updateTag(Long id, Tag updatedTag) {
         Tag tag = getTagById(id);
         tag.setName(updatedTag.getName());
+        tag.setStatus(Math.toIntExact(updatedTag.getStatus()));
         return tagRepository.save(tag);
     }
 
