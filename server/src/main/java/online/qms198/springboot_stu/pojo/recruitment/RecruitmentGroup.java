@@ -5,6 +5,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentGroupDto;
+import org.springframework.security.core.parameters.P;
+
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -17,9 +21,39 @@ public class RecruitmentGroup {
     @Column(name = "group_id")
     private Integer groupId;
 
-    @Column(name = "group_account")
+    @Column(name = "group_account" , unique = true , nullable = false)
     private Integer groupAccount;
 
-    @Column(name = "status" , columnDefinition = "INT DEFAULT 0")
-    private Integer status;
+    @Column(name = "group_name")
+    private String groupName;
+
+    @Column(name = "create_time")
+    private LocalDateTime createTime;
+
+    @Column(name = "creator_account")
+    private String creatorAccount;
+
+    @Column(name = "delete_status" , columnDefinition = "INT DEFAULT 0")
+    private Integer deleteStatus;
+
+    @Column(name = "visible_status" , columnDefinition = "INT DEFAULT 0")
+    private Integer visibleStatus;
+
+    public RecruitmentGroup(RecruitmentGroupDto recruitmentGroupDto){
+        this.creatorAccount = recruitmentGroupDto.getCreatorAccount();
+        this.groupName = recruitmentGroupDto.getGroupName();
+        this.groupAccount = recruitmentGroupDto.getGroupAccount();
+        this.visibleStatus = recruitmentGroupDto.getVisibleStatus();
+    }
+
+    public RecruitmentGroup(RecruitmentGroupDto recruitmentGroupDto , RecruitmentGroup recruitmentGroup){
+        this.creatorAccount = recruitmentGroupDto.getCreatorAccount();
+        this.groupName = recruitmentGroupDto.getGroupName();
+        this.groupAccount = recruitmentGroupDto.getGroupAccount();
+        this.visibleStatus = recruitmentGroupDto.getVisibleStatus();
+        this.createTime = recruitmentGroup.getCreateTime();
+        this.groupId = recruitmentGroup.getGroupId();
+        this.deleteStatus = recruitmentGroup.getDeleteStatus();
+    }
+
 }

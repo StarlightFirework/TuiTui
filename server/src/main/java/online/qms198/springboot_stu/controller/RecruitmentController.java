@@ -77,9 +77,9 @@ public class RecruitmentController {
         return ResponseMessage.success();
     }
 
-    @GetMapping("/statistics/collectionAdd")
-    public ResponseMessage<Recruitment> addCollectionCount(Integer recruitmentId){
-        recruitmentStatisticsService.updateCollectionCountAdd(recruitmentId);
+    @GetMapping("/statistics/collectionPlus")
+    public ResponseMessage<Recruitment> plusCollectionCount(Integer recruitmentId){
+        recruitmentStatisticsService.updateCollectionCountplus(recruitmentId);
         return ResponseMessage.success();
     }
 

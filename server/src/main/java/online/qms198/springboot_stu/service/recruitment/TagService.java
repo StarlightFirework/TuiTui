@@ -54,6 +54,4 @@ public class TagService {
         return tagRepository.findByNameContaining(keyword);
     }
 
-    public static interface IRecruitmentGroupService {
-    }
 }

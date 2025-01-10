@@ -15,13 +15,20 @@ public class UserRecruitmentGroupMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer Id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id" , referencedColumnName = "user_account")
+    @JoinColumn(name = "user_account" , referencedColumnName = "user_account")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id" , referencedColumnName = "group_account")
+    @JoinColumn(name = "group_account" , referencedColumnName = "group_account")
     private RecruitmentGroup recruitmentGroup;
+
+    @Column(name = "role_status" , columnDefinition = "INT DEFAULT 0")
+    private Integer roleStatus;
+
+    @Column(name = "delete_status" , columnDefinition = "INT DEFAULT 0")
+    private Integer deleteStatus;
+
 }

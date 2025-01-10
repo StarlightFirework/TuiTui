@@ -25,8 +25,8 @@ public class RecruitmentStatisticsService implements IRecruitmentStatisticsServi
     }
 
     @Override
-    public void updateCollectionCountAdd(Integer recruitmentId){
-        recruitmentStatisticsRepository.updateCollectionCountAdd(recruitmentId);
+    public void updateCollectionCountplus(Integer recruitmentId){
+        recruitmentStatisticsRepository.updateCollectionCountPlus(recruitmentId);
     }
 
     @Override
