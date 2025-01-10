@@ -1,8 +1,8 @@
 package online.qms198.springboot_stu.service.recruitment;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
+import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.recruitment.*;
 import online.qms198.springboot_stu.repository.JobTagMappingRepository;
 import online.qms198.springboot_stu.repository.RecruitmentAuditRepository;
