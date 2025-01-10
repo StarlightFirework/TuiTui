@@ -23,7 +23,7 @@ public interface RecruitmentStatisticsRepository extends JpaRepository<Recruitme
     @Modifying
     @Query("update RecruitmentStatistics rs SET rs.collectionCount = rs.collectionCount + 1 where rs.recruitment.recruitmentId = :recruitmentId")
     @Transactional
-    public void updateCollectionCountAdd(Integer recruitmentId);
+    public void updateCollectionCountPlus(Integer recruitmentId);
 
     @Modifying
     @Query("update RecruitmentStatistics rs SET rs.collectionCount = rs.collectionCount - 1 where rs.recruitment.recruitmentId = :recruitmentId")

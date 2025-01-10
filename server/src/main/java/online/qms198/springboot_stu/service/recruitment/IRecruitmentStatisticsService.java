@@ -9,7 +9,7 @@ public interface IRecruitmentStatisticsService {
     public void updateViewCount(Integer recruitmentId);
 
     //增加收藏次数
-    public void updateCollectionCountAdd(Integer recruitmentId);
+    public void updateCollectionCountplus(Integer recruitmentId);
 
     // 减少收藏次数
     public void updateCollectionCountMinus(Integer recruitmentId);

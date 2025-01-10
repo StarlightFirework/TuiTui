@@ -178,6 +178,4 @@ public class TagService implements ITagService{
         return tagRepository.findByNameContaining(keyword);
     }
 
-    public static interface IRecruitmentGroupService {
-    }
 }
