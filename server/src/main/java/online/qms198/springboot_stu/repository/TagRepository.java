@@ -1,6 +1,6 @@
 package online.qms198.springboot_stu.repository;
 
-import online.qms198.springboot_stu.pojo.recruitment.Tag;
+import online.qms198.springboot_stu.pojo.tag.Tag;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -16,4 +16,10 @@ public interface TagRepository extends CrudRepository<Tag, Long> {
     Optional<Tag> findById(@Param("id") Long id);
 
     List<Tag> findByNameContaining(String keyword); // 根据名称模糊查询
+
+    boolean existsByNameAndIdNot(String name, Long tagId);
+
+    boolean existsByName(String name);
+
+    Tag findByName(String name);
 }

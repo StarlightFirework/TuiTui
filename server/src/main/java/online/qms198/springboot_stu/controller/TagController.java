@@ -1,6 +1,7 @@
 package online.qms198.springboot_stu.controller;
 
-import online.qms198.springboot_stu.pojo.recruitment.Tag;
+import online.qms198.springboot_stu.dto.tag.TagClassificationDto;
+import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.service.recruitment.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,14 +30,14 @@ public class TagController {
 
     // 添加Tag
     @PostMapping
-    public ResponseEntity<Tag> createTag(@RequestBody Tag tag) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(tagService.createTag(tag));
+    public ResponseEntity<Tag> createTag(@RequestBody TagClassificationDto tagClassificationDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(tagService.createTag(tagClassificationDto));
     }
 
     // 更新Tag
-    @PutMapping("/{id}")
-    public ResponseEntity<Tag> updateTag(@PathVariable Long id, @RequestBody Tag updatedTag) {
-        return ResponseEntity.ok(tagService.updateTag(id, updatedTag));
+    @PostMapping("/update")
+    public ResponseEntity<Tag> updateTag(@RequestBody TagClassificationDto tagClassificationDto) {
+        return ResponseEntity.ok(tagService.updateTag(tagClassificationDto));
     }
 
     // 删除Tag

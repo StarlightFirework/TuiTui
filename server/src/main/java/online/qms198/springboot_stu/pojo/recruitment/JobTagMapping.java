@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import online.qms198.springboot_stu.pojo.tag.Tag;
 
 @Data
 @NoArgsConstructor
