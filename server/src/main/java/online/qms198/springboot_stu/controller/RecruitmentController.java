@@ -31,7 +31,6 @@ public class RecruitmentController {
     IRecruitmentService recruitmentService;
     @Autowired
     IJobTagMappingService jobTagMappingService;
-
     @Autowired
     IRecruitmentStatisticsService recruitmentStatisticsService;
     @PostMapping("/insert")

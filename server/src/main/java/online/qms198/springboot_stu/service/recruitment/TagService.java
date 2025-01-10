@@ -53,4 +53,7 @@ public class TagService {
     public List<Tag> searchTagsByName(String keyword) {
         return tagRepository.findByNameContaining(keyword);
     }
+
+    public static interface IRecruitmentGroupService {
+    }
 }
