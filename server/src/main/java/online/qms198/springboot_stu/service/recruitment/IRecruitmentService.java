@@ -27,6 +27,6 @@ public interface IRecruitmentService {
     public RecruitmentPage getAuditRecruitmentsByPage(Integer page , Integer size);
 
     // 设置招聘信息审核结果
-    public void updateAuditRecruitment(RecruitmentAuditDto recruitmentAuditDto);
+    public void updateAuditRecruitment(RecruitmentAuditDto recruitmentAuditDto) throws Exception;
 
 }

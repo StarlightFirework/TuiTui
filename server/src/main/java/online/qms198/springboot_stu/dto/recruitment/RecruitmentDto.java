@@ -52,6 +52,8 @@ public class RecruitmentDto {
 
     private List<Long> tagIds;
 
+    private List<Integer> groupAccounts;
+
     public RecruitmentDto(Recruitment recruitment, List<Long> tagIds){
         this.recruitmentId = recruitment.getRecruitmentId();
         this.publisherAccount = recruitment.getPublisherAccount();

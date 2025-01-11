@@ -1,6 +1,6 @@
 package online.qms198.springboot_stu.service.recruitment;
 
-import online.qms198.springboot_stu.repository.RecruitmentStatisticsRepository;
+import online.qms198.springboot_stu.repository.recruitment.RecruitmentStatisticsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

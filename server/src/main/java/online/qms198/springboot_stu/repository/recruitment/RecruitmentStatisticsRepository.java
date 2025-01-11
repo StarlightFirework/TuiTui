@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.repository;
+package online.qms198.springboot_stu.repository.recruitment;
 
 
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentStatistics;

@@ -3,8 +3,8 @@ package online.qms198.springboot_stu.service.group;
 import online.qms198.springboot_stu.dto.group.RecruitmentGroupDto;
 import online.qms198.springboot_stu.pojo.group.RecruitmentGroup;
 import online.qms198.springboot_stu.pojo.group.UserRecruitmentGroupMapping;
-import online.qms198.springboot_stu.repository.RecruitmentGroupRepository;
-import online.qms198.springboot_stu.repository.UserGroupMappingRepository;
+import online.qms198.springboot_stu.repository.group.RecruitmentGroupRepository;
+import online.qms198.springboot_stu.repository.group.UserGroupMappingRepository;
 import online.qms198.springboot_stu.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -84,4 +84,6 @@ public class RecruitmentGroupService implements IRecruitmentGroupService {
         }
         return recruitmentGroup;
     }
+
+
 }

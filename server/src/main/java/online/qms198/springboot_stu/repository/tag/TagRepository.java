@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.repository;
+package online.qms198.springboot_stu.repository.tag;
 
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import org.springframework.data.jpa.repository.Query;
