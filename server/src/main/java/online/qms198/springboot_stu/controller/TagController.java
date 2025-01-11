@@ -1,6 +1,7 @@
 package online.qms198.springboot_stu.controller;
 
 import online.qms198.springboot_stu.dto.tag.TagClassificationDto;
+import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.service.recruitment.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // 标记请求处理类。接口方法返回对象，转换成json文本
-@RequestMapping("/tags") // localhost:8088/user/，标记拦截user URL前缀地址类
+@RestController
+@RequestMapping("/tags")
 @CrossOrigin(
         origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77:8848"},
         allowedHeaders = {"Authorization", "Content-Type"},
@@ -30,32 +31,37 @@ public class TagController {
 
     // 添加Tag
     @PostMapping("/create")
-    public ResponseEntity<Tag> createTag(@RequestBody TagClassificationDto tagClassificationDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(tagService.createTag(tagClassificationDto));
+    public ResponseEntity<ResponseMessage<Tag>> createTag(@RequestBody TagClassificationDto tagClassificationDto) {
+        Tag createdTag = tagService.createTag(tagClassificationDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(ResponseMessage.success(createdTag));
     }
 
     // 更新Tag
     @PostMapping("/update")
-    public ResponseEntity<Tag> updateTag(@RequestBody TagClassificationDto tagClassificationDto) {
-        return ResponseEntity.ok(tagService.updateTag(tagClassificationDto));
+    public ResponseEntity<ResponseMessage<Tag>> updateTag(@RequestBody TagClassificationDto tagClassificationDto) {
+        Tag updatedTag = tagService.updateTag(tagClassificationDto);
+        return ResponseEntity.ok(ResponseMessage.success(updatedTag));
     }
 
     // 删除Tag
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteTag(@PathVariable Long id) {
+    public ResponseEntity<ResponseMessage<Void>> deleteTag(@PathVariable Long id) {
         tagService.deleteTag(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build();  // 由于没有返回内容, 也可以使用 ResponseMessage.success(null) 来标明删除成功
     }
 
+    // 根据ID查询Tag
     @GetMapping("/get/id/{id}")
-    public ResponseEntity<Tag> GetTagById(@PathVariable Long id) {
-        return ResponseEntity.ok(tagService.getTagById(id));
+    public ResponseEntity<ResponseMessage<Tag>> GetTagById(@PathVariable Long id) {
+        Tag tag = tagService.getTagById(id);
+        return ResponseEntity.ok(ResponseMessage.success(tag));
     }
 
     // 模糊搜索Tag
     @GetMapping("/search")
-    public ResponseEntity<List<Tag>> searchTags(@RequestParam String keyword) {
-        return ResponseEntity.ok(tagService.searchTagsByName(keyword));
+    public ResponseEntity<ResponseMessage<List<Tag>>> searchTags(@RequestParam String keyword) {
+        List<Tag> tags = tagService.searchTagsByName(keyword);
+        return ResponseEntity.ok(ResponseMessage.success(tags));
     }
 
 }
