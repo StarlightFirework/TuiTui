@@ -16,12 +16,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类
 @CrossOrigin(
         origins = {"http://localhost:3000", "https://qms198.online"},
         allowedHeaders = {"Authorization", "Content-Type"},
-        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS},
+        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.DELETE},
         allowCredentials = "true",
         exposedHeaders = {"Authorization"}
 )
@@ -75,6 +77,8 @@ public class UserController {
     // 查询
     @GetMapping("/userAccount")
     public ResponseMessage<User> get(@RequestParam String userAccount) {
+        System.out.println("123456");
+        System.out.println(userAccount);
         logger.info("Querying user with account: {}", userAccount);
         User userNew = userService.getUserByUserAccount(userAccount);
         return ResponseMessage.success(userNew);
@@ -95,4 +99,19 @@ public class UserController {
         }
         return ResponseMessage.error();
     }
+
+    @GetMapping("/get/all")
+    public ResponseMessage<List<User>> getAllUsers() {
+        try {
+            List<User> users = userService.getAllUsers();
+            if (users.isEmpty()) {
+                return new ResponseMessage<>(404, "No users found", null);
+            }
+            return ResponseMessage.success(users);
+        } catch (Exception e) {
+            e.printStackTrace(); // 打印详细异常信息
+            return new ResponseMessage<>(500, "Internal Server Error", null);
+        }
+    }
+
 }

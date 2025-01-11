@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class UserService implements IUserService{
 
@@ -96,5 +98,11 @@ public class UserService implements IUserService{
             throw new RuntimeException("Unexpected error occurred while fetching user", e);
         }
     }
+
+    @Override
+    public List<User> getAllUsers() {
+        return (List<User>) userRepository.findAll();
+    }
+
 
 }

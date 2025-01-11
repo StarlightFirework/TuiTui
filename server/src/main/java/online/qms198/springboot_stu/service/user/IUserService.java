@@ -3,6 +3,8 @@ package online.qms198.springboot_stu.service.user;
 import online.qms198.springboot_stu.pojo.user.User;
 import online.qms198.springboot_stu.dto.user.UserRegisterDto;
 
+import java.util.List;
+
 public interface IUserService {
     // 插入用户
     User add(UserRegisterDto user);
@@ -19,4 +21,6 @@ public interface IUserService {
     User authenticate(String userAccount, String password);
 
     User getUserByUserAccount(String userAccount);
+
+    List<User> getAllUsers();
 }

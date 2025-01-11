@@ -96,7 +96,7 @@ public class WebSecurityConfig {
                         .requestMatchers("group/addUser", "group/deleteUser").hasAnyRole("INCUMBENT", "ADMIN")
                 // 2级权限
                         // 用户修改、删除
-                        .requestMatchers("user/delete/", "user/edit").hasRole("ADMIN")
+                        .requestMatchers("/user/delete/", "/user/edit").hasRole("ADMIN")
                         // 招聘信息审核及查询
                         .requestMatchers("recruit/audit/get", "recruit/audit/update").hasRole("ADMIN")
                         // 标签的增删改
@@ -104,7 +104,7 @@ public class WebSecurityConfig {
                         // 标签大类的增删改
                         .requestMatchers("/tag-classifications/create", "tag-classifications/update/", "tag-classifications/delete/").hasRole("ADMIN")
                 //除上面外的所有请求全部需要鉴权认证
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                 )
 
                 //禁用缓存
