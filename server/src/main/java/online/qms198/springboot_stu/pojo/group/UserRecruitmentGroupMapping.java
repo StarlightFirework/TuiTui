@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.pojo.recruitment;
+package online.qms198.springboot_stu.pojo.group;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import online.qms198.springboot_stu.pojo.user.User;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user_recruitment_group__mapping")
+@Table(name = "user_recruitment_group_mapping")
 public class UserRecruitmentGroupMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

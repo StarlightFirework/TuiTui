@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.dto.recruitment;
+package online.qms198.springboot_stu.dto.group;
 
 
 import lombok.AllArgsConstructor;

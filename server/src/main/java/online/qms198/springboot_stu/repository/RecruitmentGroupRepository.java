@@ -1,6 +1,6 @@
 package online.qms198.springboot_stu.repository;
 
-import online.qms198.springboot_stu.pojo.recruitment.RecruitmentGroup;
+import online.qms198.springboot_stu.pojo.group.RecruitmentGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

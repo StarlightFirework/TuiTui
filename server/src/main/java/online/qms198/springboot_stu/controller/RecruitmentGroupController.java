@@ -2,17 +2,16 @@ package online.qms198.springboot_stu.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
-import online.qms198.springboot_stu.dto.recruitment.RecruitmentGroupDto;
-import online.qms198.springboot_stu.dto.recruitment.RecruitmentUserGroupDto;
+import online.qms198.springboot_stu.dto.group.GroupUserPage;
+import online.qms198.springboot_stu.dto.group.RecruitmentGroupDto;
+import online.qms198.springboot_stu.dto.group.RecruitmentUserGroupDto;
 import online.qms198.springboot_stu.pojo.common.ResponseMessage;
-import online.qms198.springboot_stu.pojo.recruitment.RecruitmentGroup;
-import online.qms198.springboot_stu.pojo.recruitment.UserRecruitmentGroupMapping;
-import online.qms198.springboot_stu.service.recruitment.RecruitmentGroupService;
-import online.qms198.springboot_stu.service.recruitment.UserGroupMappingService;
+import online.qms198.springboot_stu.pojo.group.RecruitmentGroup;
+import online.qms198.springboot_stu.pojo.group.UserRecruitmentGroupMapping;
+import online.qms198.springboot_stu.service.group.RecruitmentGroupService;
+import online.qms198.springboot_stu.service.group.UserGroupMappingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Slf4j
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
@@ -29,7 +28,7 @@ public class RecruitmentGroupController {
         return ResponseMessage.success(recruitmentGroup);
     }
 
-    @PostMapping("edit")
+    @PostMapping("/edit")
     public ResponseMessage<RecruitmentGroup> editRecruitmentGroup(@RequestBody RecruitmentGroupDto recruitmentGroupDto) throws Exception {
         return ResponseMessage.success(recruitmentGroupService.editRecruitmentGroup(recruitmentGroupDto));
     }
@@ -56,5 +55,10 @@ public class RecruitmentGroupController {
     public ResponseMessage<UserRecruitmentGroupMapping> batchDeleteUserGroupMapping(@RequestBody RecruitmentUserGroupDto recruitmentUserGroupDto) throws Exception {
         userGroupMappingService.batchDeleteUserGroupMapping(recruitmentUserGroupDto.getUserAccounts(),recruitmentUserGroupDto.getGroupAccount());
         return ResponseMessage.success();
+    }
+
+    @GetMapping("/selectUser")
+    public ResponseMessage<GroupUserPage> selectGroupUser(Integer groupAccount , Integer page , Integer size){
+        return ResponseMessage.success(userGroupMappingService.findGroupUser(groupAccount,page,size));
     }
 }

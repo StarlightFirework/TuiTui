@@ -1,7 +1,7 @@
-package online.qms198.springboot_stu.service.recruitment;
+package online.qms198.springboot_stu.service.group;
 
-import online.qms198.springboot_stu.dto.recruitment.RecruitmentGroupDto;
-import online.qms198.springboot_stu.pojo.recruitment.RecruitmentGroup;
+import online.qms198.springboot_stu.dto.group.RecruitmentGroupDto;
+import online.qms198.springboot_stu.pojo.group.RecruitmentGroup;
 
 public interface IRecruitmentGroupService {
     public RecruitmentGroup addRecruitmentGroup(RecruitmentGroupDto recruitmentGroupDto);

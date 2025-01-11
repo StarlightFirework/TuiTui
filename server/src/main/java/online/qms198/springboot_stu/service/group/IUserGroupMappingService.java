@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.service.recruitment;
+package online.qms198.springboot_stu.service.group;
 
 import online.qms198.springboot_stu.pojo.user.User;
 

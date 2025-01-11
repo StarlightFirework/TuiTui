@@ -1,8 +1,8 @@
-package online.qms198.springboot_stu.service.recruitment;
+package online.qms198.springboot_stu.service.group;
 
-import online.qms198.springboot_stu.dto.recruitment.RecruitmentGroupDto;
-import online.qms198.springboot_stu.pojo.recruitment.RecruitmentGroup;
-import online.qms198.springboot_stu.pojo.recruitment.UserRecruitmentGroupMapping;
+import online.qms198.springboot_stu.dto.group.RecruitmentGroupDto;
+import online.qms198.springboot_stu.pojo.group.RecruitmentGroup;
+import online.qms198.springboot_stu.pojo.group.UserRecruitmentGroupMapping;
 import online.qms198.springboot_stu.repository.RecruitmentGroupRepository;
 import online.qms198.springboot_stu.repository.UserGroupMappingRepository;
 import online.qms198.springboot_stu.service.user.UserService;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 @Service
-public class RecruitmentGroupService implements IRecruitmentGroupService{
+public class RecruitmentGroupService implements IRecruitmentGroupService {
 
     @Autowired
     RecruitmentGroupRepository recruitmentGroupRepository;

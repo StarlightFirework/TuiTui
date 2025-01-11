@@ -1,12 +1,11 @@
-package online.qms198.springboot_stu.pojo.recruitment;
+package online.qms198.springboot_stu.pojo.group;
 
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import online.qms198.springboot_stu.dto.recruitment.RecruitmentGroupDto;
-import org.springframework.security.core.parameters.P;
+import online.qms198.springboot_stu.dto.group.RecruitmentGroupDto;
 
 import java.time.LocalDateTime;
 

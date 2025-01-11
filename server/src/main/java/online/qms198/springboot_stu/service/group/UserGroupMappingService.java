@@ -1,17 +1,22 @@
-package online.qms198.springboot_stu.service.recruitment;
+package online.qms198.springboot_stu.service.group;
 
-import online.qms198.springboot_stu.pojo.recruitment.UserRecruitmentGroupMapping;
+import online.qms198.springboot_stu.dto.group.GroupUser;
+import online.qms198.springboot_stu.dto.group.GroupUserPage;
+import online.qms198.springboot_stu.pojo.group.UserRecruitmentGroupMapping;
 import online.qms198.springboot_stu.repository.UserGroupMappingRepository;
 import online.qms198.springboot_stu.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserGroupMappingService implements IUserGroupMappingService{
+public class UserGroupMappingService implements IUserGroupMappingService {
 
     @Autowired
     UserGroupMappingRepository userGroupMappingRepository;
@@ -46,5 +51,11 @@ public class UserGroupMappingService implements IUserGroupMappingService{
             userRecruitmentGroupMapping.setDeleteStatus(1);
             userGroupMappingRepository.save(userRecruitmentGroupMapping);
         }
+    }
+
+    public GroupUserPage findGroupUser(Integer groupAccount , Integer page , Integer size){
+        Pageable pageable = (Pageable) PageRequest.of(page,size).withSort(Sort.Direction.DESC,"roleStatus");
+        Page<GroupUser> groupUsers=  userGroupMappingRepository.findGroupUsersByGroupAccountPage(groupAccount,pageable);
+        return new GroupUserPage((int)groupUsers.getTotalElements(),groupUsers.getContent());
     }
 }
