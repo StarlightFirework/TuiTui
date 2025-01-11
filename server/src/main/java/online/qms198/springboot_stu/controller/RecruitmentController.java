@@ -20,7 +20,7 @@ import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/recruit") // localhost:8088/user/，标记拦截user URL前缀地址类
 @CrossOrigin(
-        origins = {"http://localhost:3000", "https://qms198.online"},
+        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77:8848"},
         allowedHeaders = {"Authorization", "Content-Type"},
         methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS},
         allowCredentials = "true"

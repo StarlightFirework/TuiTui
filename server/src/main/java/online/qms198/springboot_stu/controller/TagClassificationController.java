@@ -1,5 +1,6 @@
 package online.qms198.springboot_stu.controller;
 
+import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.pojo.tag.TagClassification;
 import online.qms198.springboot_stu.service.ITagClassificationService;
 import online.qms198.springboot_stu.service.TagClassificationService;
@@ -13,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/tag-classifications")
 @CrossOrigin(
-        origins = {"http://localhost:3000", "https://qms198.online"},
+        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77:8848"},
         allowedHeaders = {"Authorization", "Content-Type"},
         methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS},
         allowCredentials = "true",
@@ -48,9 +49,9 @@ import java.util.List;
 
     // 查询所有 TagClassification
     @GetMapping("/get/all")
-    public ResponseEntity<List<TagClassification>> getAllTagClassifications() {
+    public ResponseEntity<ResponseMessage<List<TagClassification>>> getAllTagClassifications() {
         List<TagClassification> tagClassifications = tagClassificationService.getAllTagClassifications();
-        return ResponseEntity.ok(tagClassifications);
+        return ResponseEntity.ok(ResponseMessage.success(tagClassifications));
     }
 
     // 根据 ID 查询单个 TagClassification
