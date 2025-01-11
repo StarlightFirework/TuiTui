@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.pojo.recruitment;
+package online.qms198.springboot_stu.pojo.group;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -54,6 +54,9 @@ public class Recruitment {
     @Column(name = "status" , columnDefinition = "INT DEFAULT 0")
     private Integer status; // 0：有效（默认值） 1：无效
 
+    @Column(name = "permission_status", columnDefinition = "INT DEFAULT 0")
+    private Integer permissionStatus;
+//    @Column(name = )
     public Recruitment(RecruitmentDto recruitmentDto, Recruitment recruitment){
         this.recruitmentId = recruitmentDto.getRecruitmentId();
         this.publisherAccount = recruitmentDto.getPublisherAccount();

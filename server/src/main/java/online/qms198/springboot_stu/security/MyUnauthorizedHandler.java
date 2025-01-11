@@ -20,7 +20,11 @@ public class MyUnauthorizedHandler implements AuthenticationEntryPoint {
         log.error("Unauthorized error", authException);
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println("认证失败");
+        response.getWriter().println("{\n" +
+                "    \"code\": 401,\n" +
+                "    \"message\": \"unauthorized!\",\n" +
+                "    \"data\": null\n" +
+                "}");
         response.getWriter().flush();
     }
 }

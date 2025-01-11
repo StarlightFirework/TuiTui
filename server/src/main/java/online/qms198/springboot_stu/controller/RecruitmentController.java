@@ -95,7 +95,7 @@ public class RecruitmentController {
     }
 
     @PostMapping("/audit/update")
-    public ResponseMessage<Recruitment> updateAuditRecruitment(@RequestBody RecruitmentAuditDto recruitmentAuditDto){
+    public ResponseMessage<Recruitment> updateAuditRecruitment(@RequestBody RecruitmentAuditDto recruitmentAuditDto) throws Exception {
         recruitmentService.updateAuditRecruitment(recruitmentAuditDto);
         return ResponseMessage.success();
     }

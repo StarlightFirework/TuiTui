@@ -4,7 +4,7 @@ package online.qms198.springboot_stu.service.recruitment;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
-import online.qms198.springboot_stu.repository.JobTagMappingRepository;
+import online.qms198.springboot_stu.repository.tag.JobTagMappingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,10 +34,12 @@ public class JobTagMappingService implements IJobTagMappingService {
         List<Integer> recruitmentIds = new ArrayList<>();
         for(Recruitment recruitment : recruitments){
             recruitmentIds.add(recruitment.getRecruitmentId());
+            // 处理薪资显示
+            recruitment.setMinMonthlySalary(recruitment.getMinMonthlySalary()/1000);
+            recruitment.setMaxMonthlySalary(recruitment.getMaxMonthlySalary()/1000);
         }
         // 增加这些招聘信息的查询次数
         recruitmentStatisticsService.batchUpdateQueryCount(recruitmentIds);
-
         return new RecruitmentPage((int)recruitmentPage.getTotalElements(),recruitmentChangeRecruitmentDto(recruitments));
     }
 

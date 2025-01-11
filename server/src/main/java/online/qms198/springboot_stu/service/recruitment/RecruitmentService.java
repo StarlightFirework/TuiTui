@@ -4,10 +4,11 @@ import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.recruitment.*;
-import online.qms198.springboot_stu.repository.JobTagMappingRepository;
-import online.qms198.springboot_stu.repository.RecruitmentAuditRepository;
-import online.qms198.springboot_stu.repository.RecruitmentRepository;
-import online.qms198.springboot_stu.repository.TagRepository;
+import online.qms198.springboot_stu.repository.tag.JobTagMappingRepository;
+import online.qms198.springboot_stu.repository.recruitment.RecruitmentAuditRepository;
+import online.qms198.springboot_stu.repository.recruitment.RecruitmentRepository;
+import online.qms198.springboot_stu.repository.tag.TagRepository;
+import online.qms198.springboot_stu.service.group.IRecruitmentRecruitmentGroupMappingService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.*;
 
-
 @Service
 public class RecruitmentService implements IRecruitmentService{
 
@@ -31,20 +31,25 @@ public class RecruitmentService implements IRecruitmentService{
     private JobTagMappingRepository jobTagMappingRepository;
 
     @Autowired
-    private TagService tagService;
+    private ITagService tagService;
 
     @Autowired
     private TagRepository tagRepository;
 
     @Autowired
-    private RecruitmentStatisticsService recruitmentStatisticsService;
+    private IRecruitmentStatisticsService recruitmentStatisticsService;
 
     @Autowired
     private RecruitmentAuditRepository recruitmentAuditRepository;
 
+    @Autowired
+    private IRecruitmentRecruitmentGroupMappingService recruitmentRecruitmentGroupMappingService;
+
     @Override
     public RecruitmentDto getRecruitment(Integer recruitmentId) {
-        RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId),jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
+        RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId), jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
+        recruitmentDto.setMinMonthlySalary(recruitmentDto.getMinMonthlySalary()/1000);
+        recruitmentDto.setMaxMonthlySalary(recruitmentDto.getMaxMonthlySalary()/1000);
         // 增加该条招聘信息的查询次数
         List<Integer> recruitmentIds = new ArrayList<Integer>();
         recruitmentIds.add(recruitmentId);
@@ -82,8 +87,20 @@ public class RecruitmentService implements IRecruitmentService{
         // 设置待审核状态字
         recruitmentPojo.setStatus(2);
 
+        // 设置权限状态字
+        if(!recruitmentDto.getGroupAccounts().isEmpty()){
+            recruitmentPojo.setPermissionStatus(1);
+        }else{
+            recruitmentPojo.setPermissionStatus(0);
+        }
+
         // 保存招聘信息
         Recruitment savedRecruitment = recruitmentRepository.save(recruitmentPojo);
+
+        if(!recruitmentDto.getGroupAccounts().isEmpty()){
+            // 添加私有招聘信息映射圈子信息
+            recruitmentRecruitmentGroupMappingService.batchAddRecruitmentGroupMapping(recruitmentDto.getGroupAccounts(),savedRecruitment.getRecruitmentId());
+        }
 
         if (recruitmentDto.getTagIds() != null && !recruitmentDto.getTagIds().isEmpty()) {
             List<Tag> tags = tagService.getTagsByIds(recruitmentDto.getTagIds());
@@ -119,6 +136,9 @@ public class RecruitmentService implements IRecruitmentService{
         List<Integer> recruitmentIds = new ArrayList<>();
         for(Recruitment recruitment : recruitments){
             recruitmentIds.add(recruitment.getRecruitmentId());
+            // 处理薪资显示
+            recruitment.setMinMonthlySalary(recruitment.getMinMonthlySalary()/1000);
+            recruitment.setMaxMonthlySalary(recruitment.getMaxMonthlySalary()/1000);
         }
         // 增加这些招聘信息的查询次数
         recruitmentStatisticsService.batchUpdateQueryCount(recruitmentIds);
@@ -190,10 +210,15 @@ public class RecruitmentService implements IRecruitmentService{
         return recruitmentDtos;
     }
 
-    public void updateAuditRecruitment(RecruitmentAuditDto recruitmentAuditDto){
+    public void updateAuditRecruitment(RecruitmentAuditDto recruitmentAuditDto) throws Exception {
         if(recruitmentAuditDto.getAuditCode() == 0){
             recruitmentRepository.updateRecruitmentApproved(recruitmentAuditDto.getRecruitmentId());
         }else{
+
+            if(recruitmentAuditDto.getDescription().isEmpty()){
+                throw new Exception("审核驳回未提交理由，审核招聘信息Id: " + recruitmentAuditDto.getRecruitmentId());
+            }
+
             recruitmentRepository.updateRecruitmentReject(recruitmentAuditDto.getRecruitmentId());
             RecruitmentAudit recruitmentAudit = recruitmentAuditRepository.findByRecruitmentId(recruitmentAuditDto.getRecruitmentId());
             if( recruitmentAudit == null ){

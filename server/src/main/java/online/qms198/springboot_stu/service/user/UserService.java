@@ -2,7 +2,7 @@ package online.qms198.springboot_stu.service.user;
 
 import online.qms198.springboot_stu.pojo.user.User;
 import online.qms198.springboot_stu.dto.user.UserRegisterDto;
-import online.qms198.springboot_stu.repository.UserRepository;
+import online.qms198.springboot_stu.repository.user.UserRepository;
 import online.qms198.springboot_stu.utils.EncryptionUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

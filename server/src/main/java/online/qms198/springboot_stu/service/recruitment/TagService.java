@@ -1,13 +1,12 @@
 package online.qms198.springboot_stu.service.recruitment;
 
-import jakarta.validation.constraints.NotBlank;
 import online.qms198.springboot_stu.dto.tag.TagClassificationDto;
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.tag.TagClassification;
 import online.qms198.springboot_stu.pojo.tag.TagClassificationMapping;
-import online.qms198.springboot_stu.repository.TagClassificationMappingRepository;
-import online.qms198.springboot_stu.repository.TagClassificationRepository;
-import online.qms198.springboot_stu.repository.TagRepository;
+import online.qms198.springboot_stu.repository.tag.TagClassificationMappingRepository;
+import online.qms198.springboot_stu.repository.tag.TagClassificationRepository;
+import online.qms198.springboot_stu.repository.tag.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
