@@ -39,13 +39,13 @@ public class RecruitmentController {
             return ResponseMessage.success(recruitmentNew);
     }
 
-    @GetMapping("/{recruitmentId}")
+    @GetMapping("/get/id/{recruitmentId}")
     public ResponseMessage<RecruitmentDto> getById(@PathVariable Integer recruitmentId) {
         RecruitmentDto recruitmentDtoNew = recruitmentService.getRecruitment(recruitmentId);
         return ResponseMessage.success(recruitmentDtoNew);
     }
 
-    @PostMapping()
+    @PostMapping("/get/all")
     public ResponseMessage<RecruitmentPage> getRecruitments(@RequestBody RecruitmentPageDto recruitmentPageDto){
         RecruitmentPage recruitmentPage = new RecruitmentPage();
 
@@ -57,14 +57,14 @@ public class RecruitmentController {
         return ResponseMessage.success(recruitmentPage);
     }
 
-    @PutMapping
+    @PutMapping("/edit")
     public ResponseMessage<RecruitmentDto> edit(@RequestBody RecruitmentDto recruitmentDto) throws Exception {
         RecruitmentDto recruitmentNew = recruitmentService.editRecruitment(recruitmentDto);
         return ResponseMessage.success(recruitmentNew);
     }
 
     // 删除
-    @DeleteMapping("/{recruitmentId}")
+    @DeleteMapping("/delete/{recruitmentId}")
     public ResponseMessage<Recruitment> delete(@PathVariable Integer recruitmentId) {
         if(recruitmentService.delete(recruitmentId)){
             return ResponseMessage.success();
@@ -89,12 +89,12 @@ public class RecruitmentController {
         return ResponseMessage.success();
     }
 
-    @GetMapping("/audit")
+    @GetMapping("/audit/get")
     public ResponseMessage<RecruitmentPage> getAuditRecruitments(Integer page, Integer size){
         return ResponseMessage.success(recruitmentService.getAuditRecruitmentsByPage(page,size));
     }
 
-    @PostMapping("/audit")
+    @PostMapping("/audit/update")
     public ResponseMessage<Recruitment> updateAuditRecruitment(@RequestBody RecruitmentAuditDto recruitmentAuditDto){
         recruitmentService.updateAuditRecruitment(recruitmentAuditDto);
         return ResponseMessage.success();

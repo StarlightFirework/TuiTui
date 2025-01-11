@@ -81,14 +81,14 @@ public class UserController {
     }
 
     // 修改
-    @PutMapping
+    @PutMapping("/edit")
     public ResponseMessage<User> edit(@Validated @RequestBody UserRegisterDto user) {
         User userNew = userService.edit(user);
         return ResponseMessage.success(userNew);
     }
 
     // 删除
-    @DeleteMapping("/{userId}") // URL: localhost:8088/user/userId method: delete
+    @DeleteMapping("/delete/{userId}") // URL: localhost:8088/user/userId method: delete
     public ResponseMessage<User> delete(@PathVariable Integer userId) {
         if(userService.delete(userId)){
             return ResponseMessage.success();

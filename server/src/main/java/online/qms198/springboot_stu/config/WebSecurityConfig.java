@@ -69,24 +69,41 @@ public class WebSecurityConfig {
                 //基于token，所以不需要session
                 .sessionManagement(sessionManagementConfigurer -> sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizationRegistry -> authorizationRegistry
-
-                        //测试主页查询允许请求
-                        .requestMatchers("recruit").permitAll()
-
+                // -1级权限
                         //允许对于网站静态资源的无授权访问
                         .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/").permitAll()
-
-                            //对登录注册允许匿名访问
-                        .requestMatchers("/user/login", "/user/register", "/test/**", "/user/userAccount").permitAll()
-
-                        // 管理员才有权限对标签编辑
-//                        .requestMatchers("tags", "tags/", "tags/search", "tags/id").hasRole("ADMIN")
-
-
+                        //对登录注册允许匿名访问
+                        .requestMatchers("/user/login", "/user/register",  "user/userAccount").permitAll()
                         // OPTIONS 请求允许匿名访问（跨域预检）
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
-
-//                         除上面外的所有请求全部需要鉴权认证
+                // 0级权限
+                        // 招聘信息查询
+                        .requestMatchers("/recruit/get/all", "/recruit/get/id/").hasAnyRole("SEEKER", "INCUMBENT", "ADMIN")
+                        // 标签查询
+                        .requestMatchers("tags/get/id/", "tags/search").hasAnyRole("SEEKER", "INCUMBENT", "ADMIN")
+                        // 招聘信息统计
+                        .requestMatchers("/recruit/statistics/view", "recruit/statistics/collectionPlus", "recruit/statistics/collectionMinus").hasAnyRole("SEEKER", "INCUMBENT", "ADMIN")
+                        // 招聘圈查询
+                        .requestMatchers("group/get/",  "group/selectUser").hasAnyRole("SEEKER", "INCUMBENT", "ADMIN")
+                        // 标签大类查询
+                        .requestMatchers("tag-classifications/get/all", "tag-classifications/get/id").hasAnyRole("SEEKER", "INCUMBENT", "ADMIN")
+                // 1级权限
+                        // 招聘信息增删改
+                        .requestMatchers("recruit/insert", "recruit/edit", "recruit/delete/").hasAnyRole("INCUMBENT", "ADMIN")
+                        // 招聘圈增删改
+                        .requestMatchers("group/create", "group/edit", "group/delete/").hasAnyRole("INCUMBENT", "ADMIN")
+                        // 招聘圈管理
+                        .requestMatchers("group/addUser", "group/deleteUser").hasAnyRole("INCUMBENT", "ADMIN")
+                // 2级权限
+                        // 用户修改、删除
+                        .requestMatchers("user/delete/", "user/edit").hasRole("ADMIN")
+                        // 招聘信息审核及查询
+                        .requestMatchers("recruit/audit/get", "recruit/audit/update").hasRole("ADMIN")
+                        // 标签的增删改
+                        .requestMatchers("tags/create", "tags/update", "tags/delete/").hasRole("ADMIN")
+                        // 标签大类的增删改
+                        .requestMatchers("/tag-classifications/create", "tag-classifications/update/", "tag-classifications/delete/").hasRole("ADMIN")
+                //除上面外的所有请求全部需要鉴权认证
                         .anyRequest().permitAll()
                 )
 
