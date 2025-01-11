@@ -23,6 +23,14 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/{spring:[^.]+}").setViewName("forward:/index.html");
         registry.addViewController("/{spring:[^.]+}/**").setViewName("forward:/index.html");
     }
-
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000", "https://qms198.online")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("Authorization", "Content-Type")
+                .allowCredentials(true)
+                .exposedHeaders("Authorization");
+    }
 
 }
