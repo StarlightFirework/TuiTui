@@ -25,14 +25,14 @@ import java.util.List;
     private TagClassificationService tagClassificationService;
 
     // 新增 TagClassification
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<TagClassification> createTagClassification(@Validated @RequestBody TagClassification tagClassification) {
         TagClassification createdTagClassification = tagClassificationService.createTagClassification(tagClassification);
         return ResponseEntity.ok(createdTagClassification);
     }
 
     // 更新 TagClassification
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<TagClassification> updateTagClassification(@PathVariable Long id, @Validated @RequestBody TagClassification tagClassification) {
         tagClassification.setId(id); // 设置要更新的 ID
         TagClassification updatedTagClassification = tagClassificationService.updateTagClassification(tagClassification);
@@ -40,21 +40,21 @@ import java.util.List;
     }
 
     // 删除 TagClassification
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteTagClassification(@PathVariable Long id) {
         tagClassificationService.deleteTagClassification(id);
         return ResponseEntity.ok("TagClassification deleted successfully.");
     }
 
     // 查询所有 TagClassification
-    @GetMapping
+    @GetMapping("/get/all")
     public ResponseEntity<List<TagClassification>> getAllTagClassifications() {
         List<TagClassification> tagClassifications = tagClassificationService.getAllTagClassifications();
         return ResponseEntity.ok(tagClassifications);
     }
 
     // 根据 ID 查询单个 TagClassification
-    @GetMapping("/{id}")
+    @GetMapping("/get/id")
     public ResponseEntity<TagClassification> getTagClassificationById(@PathVariable Long id) {
         TagClassification tagClassification = tagClassificationService.getTagClassificationById(id);
         return ResponseEntity.ok(tagClassification);

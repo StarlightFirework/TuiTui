@@ -29,18 +29,18 @@ public class RecruitmentGroupController {
         return ResponseMessage.success(recruitmentGroup);
     }
 
-    @PostMapping("edit")
+    @PostMapping("/edit")
     public ResponseMessage<RecruitmentGroup> editRecruitmentGroup(@RequestBody RecruitmentGroupDto recruitmentGroupDto) throws Exception {
         return ResponseMessage.success(recruitmentGroupService.editRecruitmentGroup(recruitmentGroupDto));
     }
 
-    @DeleteMapping("/{groupAccount}")
+    @DeleteMapping("/delete/{groupAccount}")
     public ResponseMessage<RecruitmentGroup> deleteRecruitmentGroup(@PathVariable Integer groupAccount) throws Exception {
         recruitmentGroupService.deleteRecruitmentGroup(groupAccount);
         return ResponseMessage.success();
     }
 
-    @GetMapping("/{groupAccount}")
+    @GetMapping("/get/{groupAccount}")
     public ResponseMessage<RecruitmentGroup> getVisibleRecruitmentGroup(@PathVariable Integer groupAccount) throws Exception {
         RecruitmentGroup recruitmentGroup = recruitmentGroupService.getVisibleRecruitmentGroup(groupAccount);
         return ResponseMessage.success(recruitmentGroup);

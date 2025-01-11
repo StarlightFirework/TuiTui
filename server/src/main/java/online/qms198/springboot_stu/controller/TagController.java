@@ -29,7 +29,7 @@ public class TagController {
     }
 
     // 添加Tag
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Tag> createTag(@RequestBody TagClassificationDto tagClassificationDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(tagService.createTag(tagClassificationDto));
     }
@@ -41,13 +41,13 @@ public class TagController {
     }
 
     // 删除Tag
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteTag(@PathVariable Long id) {
         tagService.deleteTag(id);
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/id/{id}")
     public ResponseEntity<Tag> GetTagById(@PathVariable Long id) {
         return ResponseEntity.ok(tagService.getTagById(id));
     }
