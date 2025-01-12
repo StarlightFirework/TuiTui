@@ -4,6 +4,7 @@ import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.recruitment.*;
+import online.qms198.springboot_stu.repository.group.RecruitmentRecruitmentGroupMappingRepository;
 import online.qms198.springboot_stu.repository.tag.JobTagMappingRepository;
 import online.qms198.springboot_stu.repository.recruitment.RecruitmentAuditRepository;
 import online.qms198.springboot_stu.repository.recruitment.RecruitmentRepository;
@@ -45,15 +46,23 @@ public class RecruitmentService implements IRecruitmentService{
     @Autowired
     private IRecruitmentRecruitmentGroupMappingService recruitmentRecruitmentGroupMappingService;
 
+    @Autowired
+    RecruitmentRecruitmentGroupMappingRepository recruitmentRecruitmentGroupMappingRepository;
     @Override
     public RecruitmentDto getRecruitment(Integer recruitmentId) {
         RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId), jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
+
+        // 设置招聘信息圈子账号
+        recruitmentDto.setGroupAccounts(recruitmentRecruitmentGroupMappingRepository.findRecruitmentGroups(recruitmentId));
+
         recruitmentDto.setMinMonthlySalary(recruitmentDto.getMinMonthlySalary()/1000);
         recruitmentDto.setMaxMonthlySalary(recruitmentDto.getMaxMonthlySalary()/1000);
+
         // 增加该条招聘信息的查询次数
         List<Integer> recruitmentIds = new ArrayList<Integer>();
         recruitmentIds.add(recruitmentId);
         recruitmentStatisticsService.batchUpdateQueryCount(recruitmentIds);
+
         return recruitmentDto;
     }
 
@@ -128,7 +137,7 @@ public class RecruitmentService implements IRecruitmentService{
     @Override
     public RecruitmentPage getRecruitmentsByPage(Integer page , Integer size) {
         Pageable pageable = (Pageable) PageRequest.of(page,size);
-        Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatus(0,pageable);
+        Page<Recruitment> recruitmentPage = recruitmentRepository.findByStatusAndPermissionStatus(0,0,pageable);
 
         // 获得分页查询的招聘信息
         List<Recruitment> recruitments = recruitmentPage.getContent();
@@ -205,7 +214,7 @@ public class RecruitmentService implements IRecruitmentService{
         List<RecruitmentDto> recruitmentDtos = new ArrayList<RecruitmentDto>();
         // 将recruitment转为recruitmentDto
         for(Recruitment recruitment : recruitments){
-            recruitmentDtos.add(new RecruitmentDto(recruitment,jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitment.getRecruitmentId())));
+            recruitmentDtos.add(new RecruitmentDto(recruitment,jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitment.getRecruitmentId()) , recruitmentRecruitmentGroupMappingRepository.findRecruitmentGroups(recruitment.getRecruitmentId())));
         }
         return recruitmentDtos;
     }

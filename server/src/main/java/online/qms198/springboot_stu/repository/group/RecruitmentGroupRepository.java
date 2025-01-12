@@ -4,8 +4,10 @@ import online.qms198.springboot_stu.pojo.group.RecruitmentGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public interface RecruitmentGroupRepository extends JpaRepository<RecruitmentGroup, Integer> {
     // 屏蔽可见范围查询
     @Query("select r from RecruitmentGroup r where r.groupAccount = :groupAccount and r.deleteStatus = 0")

@@ -86,7 +86,6 @@ public class UserGroupMappingService implements IUserGroupMappingService {
         if(recruitmentGroupRepository.findByGroupAccount(groupAccount) == null){
             throw new Exception("删除圈子管理员失败，圈子账号不存在，圈子账号：" + groupAccount);
         }
-
         userGroupMappingRepository.updateUserGroupMappingRoleStatus(userAccount,groupAccount,0);
     }
 

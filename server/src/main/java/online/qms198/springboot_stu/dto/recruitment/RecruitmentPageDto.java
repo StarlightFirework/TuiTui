@@ -14,4 +14,5 @@ public class RecruitmentPageDto {
     private Integer page;
     private Integer size;
     private List<Long> tagIds;
+    private String userAccount;
 }
