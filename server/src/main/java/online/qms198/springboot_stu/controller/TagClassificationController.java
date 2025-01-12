@@ -4,7 +4,9 @@ import online.qms198.springboot_stu.dto.tag.TagClassificationWithTagsDto;
 import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.tag.TagClassification;
+import online.qms198.springboot_stu.repository.tag.TagClassificationMappingRepository;
 import online.qms198.springboot_stu.service.ITagClassificationService;
+import online.qms198.springboot_stu.service.TagClassificationMappingService;
 import online.qms198.springboot_stu.service.TagClassificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,8 @@ public class TagClassificationController {
 
     @Autowired
     private TagClassificationService tagClassificationService;
+    @Autowired
+    private TagClassificationMappingService tagClassificationMappingService;
 
     // 新增 TagClassification
     @PostMapping("/create")
@@ -57,13 +61,14 @@ public class TagClassificationController {
     }
 
     // 根据 ID 查询单个 TagClassification
-    @GetMapping("/get/id/{id}")
-    public ResponseEntity<ResponseMessage<TagClassificationWithTagsDto>> getTagClassificationById(@PathVariable Long id) {
+    @GetMapping("/get/id")
+    public ResponseEntity<ResponseMessage<TagClassificationWithTagsDto>> getTagClassificationById(@RequestParam Long id) {
         // 获取 TagClassification 信息
         TagClassification tagClassification = tagClassificationService.getTagClassificationById(id);
 
         // 获取该大类标签对应的小标签列表
-        List<Tag> tags = tagClassificationService.getTagsByTagClassificationId(id);
+
+        List<Tag> tags = tagClassificationMappingService.findTagsByClassificationIdAndStatusNot(id);
 
         // 包装返回结果
         TagClassificationWithTagsDto response = new TagClassificationWithTagsDto(tagClassification, tags);

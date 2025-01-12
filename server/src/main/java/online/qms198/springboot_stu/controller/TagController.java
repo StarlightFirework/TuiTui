@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin(
         origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77:8848"},
         allowedHeaders = {"Authorization", "Content-Type"},
-        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS},
+        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.PUT},
         allowCredentials = "true",
         exposedHeaders = {"Authorization"}
 )
@@ -51,8 +51,8 @@ public class TagController {
     }
 
     // 根据ID查询Tag
-    @GetMapping("/get/id/{id}")
-    public ResponseEntity<ResponseMessage<Tag>> GetTagById(@PathVariable Long id) {
+    @GetMapping("/get/id")
+    public ResponseEntity<ResponseMessage<Tag>> GetTagById(@RequestParam Long id) {
         Tag tag = tagService.getTagById(id);
         return ResponseEntity.ok(ResponseMessage.success(tag));
     }

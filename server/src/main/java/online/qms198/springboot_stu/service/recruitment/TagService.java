@@ -70,10 +70,30 @@ public class TagService implements ITagService{
             existingTag = tagRepository.save(existingTag);
         }
 
-        // 为标签创建父标签映射
-        for (Long tagClassificationId : tagClassificationIds) {
-            TagClassification tagClassification = tagClassificationRepository.findById(tagClassificationId)
-                    .orElseThrow(() -> new IllegalArgumentException("TagClassification not found with ID: " + tagClassificationId));
+        // 获取当前 Tag 的父标签映射
+        List<TagClassificationMapping> existingMappings = tagClassificationMappingRepository.findByTagId(existingTag.getId());
+
+        // 将输入的父标签 ID 转为 Set 以便快速查找
+        Set<Long> inputClassificationIds = new HashSet<>(tagClassificationIds);
+
+        // 更新现有的映射状态
+        for (TagClassificationMapping mapping : existingMappings) {
+            if (!inputClassificationIds.contains(mapping.getTagClassification().getId())) {
+                // 如果现有映射的父标签不在输入列表中，设置为无效
+                mapping.setStatus(1); // 无效
+                tagClassificationMappingRepository.save(mapping);
+            } else {
+                // 如果仍在输入列表中，确保状态为有效
+                mapping.setStatus(0); // 有效
+                tagClassificationMappingRepository.save(mapping);
+                inputClassificationIds.remove(mapping.getTagClassification().getId());
+            }
+        }
+
+        // 为剩余未关联的父标签创建新的映射
+        for (Long newClassificationId : inputClassificationIds) {
+            TagClassification tagClassification = tagClassificationRepository.findById(newClassificationId)
+                    .orElseThrow(() -> new IllegalArgumentException("TagClassification not found with ID: " + newClassificationId));
 
             TagClassificationMapping newMapping = new TagClassificationMapping();
             newMapping.setTagClassification(tagClassification);
@@ -85,6 +105,8 @@ public class TagService implements ITagService{
         // 返回创建或激活后的标签
         return existingTag;
     }
+
+
 
 
 
