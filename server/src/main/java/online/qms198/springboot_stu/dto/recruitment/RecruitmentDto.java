@@ -70,4 +70,22 @@ public class RecruitmentDto {
         this.status = recruitment.getStatus();
         this.tagIds = tagIds;
     }
+
+    public RecruitmentDto(Recruitment recruitment, List<Long> tagIds , List<Integer> groupAccounts){
+        this.recruitmentId = recruitment.getRecruitmentId();
+        this.publisherAccount = recruitment.getPublisherAccount();
+        this.publisherPhoneNumber = recruitment.getPublisherPhoneNumber();
+        this.publishTime = recruitment.getPublishTime();
+        this.recruitmentDeadline = recruitment.getRecruitmentDeadline();
+        this.editTime = recruitment.getEditTime();
+        this.publishTitle = recruitment.getPublishTitle();
+        this.briefIntroduction = recruitment.getBriefIntroduction();
+        this.maxMonthlySalary = recruitment.getMaxMonthlySalary();
+        this.minMonthlySalary = recruitment.getMinMonthlySalary();
+        this.numberOfDeliveries = recruitment.getNumberOfDeliveries();
+        this.getNumberOfDeliveries = recruitment.getGetNumberOfDeliveries();
+        this.status = recruitment.getStatus();
+        this.tagIds = tagIds;
+        this.groupAccounts = groupAccounts;
+    }
 }

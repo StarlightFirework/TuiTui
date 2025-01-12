@@ -14,8 +14,8 @@ import java.util.List;
 
 @Repository
 public interface UserGroupMappingRepository extends JpaRepository<UserRecruitmentGroupMapping,Integer> {
-    @Query("select ug from UserRecruitmentGroupMapping ug where ug.recruitmentGroup.groupAccount = :groupAccount")
-    public List<UserRecruitmentGroupMapping> findByGroupAccount(Integer groupAccount);
+    @Query("select ug.recruitmentGroup.groupAccount from UserRecruitmentGroupMapping ug where ug.user.userAccount = :userAccount and ug.deleteStatus = 0")
+    public List<Integer> findUserGroupAccount(String userAccount);
 
     @Query("select ug from UserRecruitmentGroupMapping ug where ug.recruitmentGroup.groupAccount = :groupAccount and ug.user.userAccount = :userAccount")
     public UserRecruitmentGroupMapping findByGroupAccountAndUserAccount(Integer groupAccount , String userAccount);

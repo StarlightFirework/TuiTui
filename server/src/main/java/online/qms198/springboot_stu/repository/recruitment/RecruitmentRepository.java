@@ -13,8 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface RecruitmentRepository extends JpaRepository<Recruitment, Integer> {
 
-    public Page<Recruitment> findByStatus(Integer status, Pageable pageable);
+    public Page<Recruitment> findByStatusAndPermissionStatus(Integer status, Integer permissionStatus, Pageable pageable);
 
+    public Page<Recruitment> findByStatus(Integer status, Pageable pageable);
     //通过id查询
     public Recruitment findByRecruitmentId(Integer recruitmentId);
 

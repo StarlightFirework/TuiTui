@@ -60,8 +60,6 @@ public class WebSecurityConfig {
                 .allowCredentials(true);  // 允许发送认证信息（如 cookies）
     }
 
-
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         //由于使用的是JWT，这里不需要csrf防护
@@ -69,6 +67,7 @@ public class WebSecurityConfig {
                 //基于token，所以不需要session
                 .sessionManagement(sessionManagementConfigurer -> sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizationRegistry -> authorizationRegistry
+
                 // -1级权限
                         //允许对于网站静态资源的无授权访问
                         .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/findJob").permitAll()
@@ -103,22 +102,24 @@ public class WebSecurityConfig {
                         .requestMatchers("tags/create", "tags/update", "tags/delete/").hasRole("ADMIN")
                         // 标签大类的增删改
                         .requestMatchers("/tag-classifications/create", "tag-classifications/update/", "tag-classifications/delete/").hasRole("ADMIN")
+
                 //除上面外的所有请求全部需要鉴权认证
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
 
-                //禁用缓存
-                .headers(headersConfigurer -> headersConfigurer
-                        .cacheControl(HeadersConfigurer.CacheControlConfig::disable)
-                )
-                //使用自定义provider
-                .authenticationProvider(jwtAuthenticationProvider())
-                //添加JWT filter
-                .addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class)
-                //添加自定义未授权和未登录结果返回
-                .exceptionHandling(exceptionConfigurer -> exceptionConfigurer
-                        .accessDeniedHandler(accessDeniedHandler)
-                        .authenticationEntryPoint(unauthorizedHandler));
+                        //禁用缓存
+                        .headers(headersConfigurer -> headersConfigurer
+                                .cacheControl(HeadersConfigurer.CacheControlConfig::disable)
+                        )
+                        //使用自定义provider
+                        .authenticationProvider(jwtAuthenticationProvider())
+                        //添加JWT filter
+                        .addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class)
+                        //添加自定义未授权和未登录结果返回
+                        .exceptionHandling(exceptionConfigurer -> exceptionConfigurer
+                                .accessDeniedHandler(accessDeniedHandler)
+                                .authenticationEntryPoint(unauthorizedHandler));
+
         return httpSecurity.build();
     }
 

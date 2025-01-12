@@ -11,8 +11,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RecruitmentPage {
-
     private Integer recruitmentTotal;
-
     private List<RecruitmentDto> recruitments;
 }
