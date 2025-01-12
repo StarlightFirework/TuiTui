@@ -11,8 +11,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface JobTagMappingRepository extends JpaRepository<JobTagMapping, Integer> {
-    @Query("SELECT DISTINCT j.recruitment FROM JobTagMapping j WHERE j.tag.id IN :tagIds and j.status = 0 and j.recruitment.status = 0 and j.tag.status = 0 GROUP BY j.recruitment.recruitmentId HAVING COUNT(DISTINCT j.tag.id) = :tagCount")
-    public Page<Recruitment> findRecruitmentsByTagIds(@Param("tagIds") List<Long> tagIds, @Param("tagCount") long tagCount, Pageable pageable);
+    @Query("SELECT DISTINCT j.recruitment FROM JobTagMapping j WHERE j.tag.id IN :tagIds and j.status = 0 and j.recruitment.status = 0 and j.tag.status = 0 GROUP BY j.recruitment.recruitmentId HAVING COUNT(DISTINCT j.tag.id) = :tagCount and j.recruitment.permissionStatus = 0")
+    public Page<Recruitment> findPublicRecruitmentsByTagIds(@Param("tagIds") List<Long> tagIds, @Param("tagCount") long tagCount, Pageable pageable);
 
     @Query("select j from JobTagMapping j where j.recruitment.recruitmentId = :recruitmentId")
     public List<JobTagMapping> findByRecruitmentRecruitmentId(Integer recruitmentId);

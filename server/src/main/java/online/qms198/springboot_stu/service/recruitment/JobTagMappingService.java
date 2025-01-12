@@ -24,9 +24,9 @@ public class JobTagMappingService implements IJobTagMappingService {
     private RecruitmentStatisticsService recruitmentStatisticsService;
 
     @Override
-    public RecruitmentPage getRecruitmentsByTagsIds(List<Long> tagIds, long tagCount, Integer page, Integer size) {
+    public RecruitmentPage getPublicRecruitmentsByTagsIds(List<Long> tagIds, long tagCount, Integer page, Integer size) {
         Pageable pageable = (Pageable) PageRequest.of(page,size);
-        Page<Recruitment> recruitmentPage =  jobTagMappingRepository.findRecruitmentsByTagIds(tagIds,tagCount,pageable);
+        Page<Recruitment> recruitmentPage =  jobTagMappingRepository.findPublicRecruitmentsByTagIds(tagIds,tagCount,pageable);
 
         // 获得分页查询的招聘信息
         List<Recruitment> recruitments = recruitmentPage.getContent();

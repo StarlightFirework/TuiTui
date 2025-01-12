@@ -3,10 +3,14 @@ package online.qms198.springboot_stu.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import online.qms198.springboot_stu.dto.group.*;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
 import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.pojo.group.RecruitmentGroup;
 import online.qms198.springboot_stu.pojo.group.UserRecruitmentGroupMapping;
+import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
 import online.qms198.springboot_stu.service.group.RecruitmentGroupService;
+import online.qms198.springboot_stu.service.group.RecruitmentRecruitmentGroupMappingService;
 import online.qms198.springboot_stu.service.group.UserGroupMappingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +25,8 @@ public class RecruitmentGroupController {
     RecruitmentGroupService recruitmentGroupService;
     @Autowired
     UserGroupMappingService userGroupMappingService;
+    @Autowired
+    RecruitmentRecruitmentGroupMappingService recruitmentRecruitmentGroupMappingService;
     @PostMapping("/create")
     public ResponseMessage<RecruitmentGroup> addRecruitmentGroup(@RequestBody RecruitmentGroupDto recruitmentGroupDto) throws Exception {
         RecruitmentGroup recruitmentGroup = recruitmentGroupService.addRecruitmentGroup(recruitmentGroupDto);
@@ -81,5 +87,10 @@ public class RecruitmentGroupController {
     @GetMapping("/selectUserGroup")
     public ResponseMessage<UserRecruitmentGroupPageDto> findUserGroup(String userAccount, Integer page, Integer size){
         return ResponseMessage.success(userGroupMappingService.findUserGroup(userAccount,page,size));
+    }
+
+    @PostMapping("/selectRecruitment")
+    public ResponseMessage<RecruitmentPage> findUserGroupRecruitment(@RequestBody RecruitmentPageDto recruitmentPageDto){
+        return ResponseMessage.success(recruitmentRecruitmentGroupMappingService.findUserGroupRecruitment(recruitmentPageDto));
     }
 }

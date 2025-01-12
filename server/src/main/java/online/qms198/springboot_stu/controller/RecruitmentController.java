@@ -8,6 +8,7 @@ import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
+import online.qms198.springboot_stu.service.group.IRecruitmentRecruitmentGroupMappingService;
 import online.qms198.springboot_stu.service.recruitment.IJobTagMappingService;
 import online.qms198.springboot_stu.service.recruitment.IRecruitmentService;
 import online.qms198.springboot_stu.service.recruitment.IRecruitmentStatisticsService;
@@ -33,6 +34,8 @@ public class RecruitmentController {
     IJobTagMappingService jobTagMappingService;
     @Autowired
     IRecruitmentStatisticsService recruitmentStatisticsService;
+    @Autowired
+    IRecruitmentRecruitmentGroupMappingService recruitmentRecruitmentGroupMappingService;
     @PostMapping("/insert")
     public ResponseMessage<Recruitment> add(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
             Recruitment recruitmentNew = recruitmentService.addRecruitment(recruitmentDto);
@@ -52,7 +55,7 @@ public class RecruitmentController {
         if (recruitmentPageDto.getTagIds().isEmpty()) {
             recruitmentPage = recruitmentService.getRecruitmentsByPage(recruitmentPageDto.getPage(), recruitmentPageDto.getSize());
         } else {
-            recruitmentPage = jobTagMappingService.getRecruitmentsByTagsIds(recruitmentPageDto.getTagIds(), recruitmentPageDto.getTagIds().size(), recruitmentPageDto.getPage(), recruitmentPageDto.getSize());
+            recruitmentPage = jobTagMappingService.getPublicRecruitmentsByTagsIds(recruitmentPageDto.getTagIds(), recruitmentPageDto.getTagIds().size(), recruitmentPageDto.getPage(), recruitmentPageDto.getSize());
         }
         return ResponseMessage.success(recruitmentPage);
     }
@@ -97,6 +100,17 @@ public class RecruitmentController {
     @PostMapping("/audit/update")
     public ResponseMessage<Recruitment> updateAuditRecruitment(@RequestBody RecruitmentAuditDto recruitmentAuditDto) throws Exception {
         recruitmentService.updateAuditRecruitment(recruitmentAuditDto);
+        return ResponseMessage.success();
+    }
+
+    @PostMapping("/addGroup")
+    public ResponseMessage<Recruitment> addRecruitmentGroup(@RequestBody RecruitmentDto recruitmentDto){
+        recruitmentRecruitmentGroupMappingService.batchAddRecruitmentGroupMapping(recruitmentDto.getGroupAccounts(),recruitmentDto.getRecruitmentId());
+        return ResponseMessage.success();
+    }
+    @PostMapping("/deleteGroup")
+    public ResponseMessage<Recruitment> deleteRecruitmentGroup(@RequestBody RecruitmentDto recruitmentDto){
+        recruitmentRecruitmentGroupMappingService.batchDeleteRecruitmentGroupMapping(recruitmentDto.getGroupAccounts(),recruitmentDto.getRecruitmentId());
         return ResponseMessage.success();
     }
 }
