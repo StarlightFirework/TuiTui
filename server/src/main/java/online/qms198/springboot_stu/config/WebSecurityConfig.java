@@ -71,7 +71,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(authorizationRegistry -> authorizationRegistry
                 // -1级权限
                         //允许对于网站静态资源的无授权访问
-                        .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/").permitAll()
+                        .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/findJob").permitAll()
                         //对登录注册允许匿名访问
                         .requestMatchers("/user/login", "/user/register",  "user/userAccount").permitAll()
                         // OPTIONS 请求允许匿名访问（跨域预检）
