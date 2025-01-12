@@ -1,5 +1,6 @@
 package online.qms198.springboot_stu.service;
 
+import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.tag.TagClassification;
 import online.qms198.springboot_stu.repository.tag.TagClassificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,4 +115,10 @@ public class TagClassificationService implements ITagClassificationService {
         return tagClassificationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("TagClassification not found with ID: " + id));
     }
+
+    public List<Tag> getTagsByTagClassificationId(Long tagClassificationId) {
+        // 通过 TagClassificationId 获取对应的 Tag 列表
+        return tagClassificationRepository.findTagsByTagClassificationId(tagClassificationId);
+    }
+
 }
