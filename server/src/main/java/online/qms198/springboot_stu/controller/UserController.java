@@ -114,4 +114,9 @@ public class UserController {
         }
     }
 
+    @GetMapping("/verify")
+    public ResponseMessage<String> getUserIdentityFromToken(@RequestParam String token) {
+        return ResponseMessage.success(JwtUtil.getUserIdentityFromToken(token));
+    }
+
 }

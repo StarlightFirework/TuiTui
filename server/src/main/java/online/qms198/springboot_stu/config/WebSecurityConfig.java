@@ -72,7 +72,7 @@ public class WebSecurityConfig {
                         //允许对于网站静态资源的无授权访问
                         .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/findJob").permitAll()
                         //对登录注册允许匿名访问
-                        .requestMatchers("/user/login", "/user/register",  "user/userAccount").permitAll()
+                        .requestMatchers("/user/login", "/user/register",  "user/userAccount", "/user/verify").permitAll()
                         // OPTIONS 请求允许匿名访问（跨域预检）
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 // 0级权限
@@ -104,7 +104,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/tag-classifications/create", "tag-classifications/update/", "tag-classifications/delete/").hasRole("ADMIN")
 
                 //除上面外的所有请求全部需要鉴权认证
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                 )
 
                         //禁用缓存
