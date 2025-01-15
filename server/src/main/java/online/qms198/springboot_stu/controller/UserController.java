@@ -16,12 +16,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类
 @CrossOrigin(
-        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77:8848"},
+        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77"},
         allowedHeaders = {"Authorization", "Content-Type"},
         methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.DELETE},
         allowCredentials = "true",
@@ -119,4 +121,15 @@ public class UserController {
         return ResponseMessage.success(JwtUtil.getUserIdentityFromToken(token));
     }
 
+    @GetMapping("/verify/code")
+    public ResponseMessage<String> verifyDynamicVerificationCode(@RequestParam String code) {
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+        String newCode = now.format(formatter);
+        if (newCode.equals(code)) {
+            return ResponseMessage.success();
+        }
+        return ResponseMessage.error();
+    }
 }
