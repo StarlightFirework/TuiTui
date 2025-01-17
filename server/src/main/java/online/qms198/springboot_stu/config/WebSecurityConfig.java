@@ -70,9 +70,9 @@ public class WebSecurityConfig {
 
                 // -1级权限
                         //允许对于网站静态资源的无授权访问
-                        .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/findJob").permitAll()
+                        .requestMatchers("/*.ico", "/*.ttf", "/*.js", "/*.html", "/client/**", "/login", "/findJob", "/").permitAll()
                         //对登录注册允许匿名访问
-                        .requestMatchers("/user/login", "/user/register",  "user/userAccount").permitAll()
+                        .requestMatchers("/user/login", "/user/register",  "user/userAccount", "/user/verify", "/user/verify/code").permitAll()
                         // OPTIONS 请求允许匿名访问（跨域预检）
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 // 0级权限
