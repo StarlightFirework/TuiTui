@@ -22,13 +22,13 @@ import java.util.List;
 
 @RestController // 标记请求处理类。接口方法返回对象，转换成json文本
 @RequestMapping("/user") // localhost:8088/user/，标记拦截user URL前缀地址类
-@CrossOrigin(
-        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77"},
-        allowedHeaders = {"Authorization", "Content-Type"},
-        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.DELETE},
-        allowCredentials = "true",
-        exposedHeaders = {"Authorization"}
-)
+//@CrossOrigin(
+//        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77"},
+//        allowedHeaders = {"Authorization", "Content-Type"},
+//        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.DELETE},
+//        allowCredentials = "true",
+//        exposedHeaders = {"Authorization"}
+//)
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);//日志记录对象
     @Autowired
