@@ -1,4 +1,4 @@
-package online.qms198.springboot_stu.service;
+package online.qms198.springboot_stu.service.tag;
 
 import online.qms198.springboot_stu.pojo.tag.TagClassification;
 import org.springframework.stereotype.Service;
