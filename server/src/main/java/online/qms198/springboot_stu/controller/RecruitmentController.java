@@ -4,6 +4,7 @@ package online.qms198.springboot_stu.controller;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentStatisticsDto;
 import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
@@ -13,7 +14,6 @@ import online.qms198.springboot_stu.service.recruitment.IJobTagMappingService;
 import online.qms198.springboot_stu.service.recruitment.IRecruitmentService;
 import online.qms198.springboot_stu.service.recruitment.IRecruitmentStatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
@@ -48,6 +48,11 @@ public class RecruitmentController {
         return ResponseMessage.success(recruitmentDtoNew);
     }
 
+    @PostMapping("/get/collection")
+    public ResponseMessage<RecruitmentPage> findCollectionRecruitment(@RequestBody RecruitmentPageDto recruitmentPageDto){
+        return ResponseMessage.success(recruitmentStatisticsService.findCollectionRecruitments(recruitmentPageDto));
+    }
+
     @PostMapping("/get/all")
     public ResponseMessage<RecruitmentPage> getRecruitments(@RequestBody RecruitmentPageDto recruitmentPageDto){
         RecruitmentPage recruitmentPage = new RecruitmentPage();
@@ -75,21 +80,26 @@ public class RecruitmentController {
         return ResponseMessage.error();
     }
     @GetMapping("/statistics/view")
-    public ResponseMessage<Recruitment> addViewCount(Integer recruitmentId){
+    public ResponseMessage<Recruitment> plusViewCount(Integer recruitmentId){
         recruitmentStatisticsService.updateViewCount(recruitmentId);
         return ResponseMessage.success();
     }
 
-    @GetMapping("/statistics/collectionPlus")
-    public ResponseMessage<Recruitment> plusCollectionCount(Integer recruitmentId){
-        recruitmentStatisticsService.updateCollectionCountplus(recruitmentId);
+    @PostMapping("/statistics/addCollection")
+    public ResponseMessage<Recruitment> addCollection(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
+        recruitmentStatisticsService.addCollection(recruitmentStatisticsDto);
         return ResponseMessage.success();
     }
 
-    @GetMapping("/statistics/collectionMinus")
-    public ResponseMessage<Recruitment> minusCollectionCount(Integer recruitmentId){
-        recruitmentStatisticsService.updateCollectionCountMinus(recruitmentId);
+    @PostMapping("/statistics/cancelCollection")
+    public ResponseMessage<Recruitment> cancelCollection(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
+        recruitmentStatisticsService.cancelCollection(recruitmentStatisticsDto);
         return ResponseMessage.success();
+    }
+
+    @GetMapping("/statistics/collectionCount")
+    public ResponseMessage<Integer> findCollectionCount(Integer recruitmentId){
+        return ResponseMessage.success(recruitmentStatisticsService.findCollectionCount(recruitmentId));
     }
 
     @GetMapping("/audit/get")
