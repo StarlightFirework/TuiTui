@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
+        registry.addResourceHandler("/static/**", "/assets/**", "/images/**")
                 .addResourceLocations("classpath:/static/");
 
     }
@@ -26,11 +26,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000", "https://qms198.online", "http://117.72.104.77", "http://qms198.online")
+                .allowedOrigins("http://localhost:3000", "https://qms198.online", "http://117.72.104.77")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("Authorization", "Content-Type")
                 .allowCredentials(true)
-                .exposedHeaders("Authorization");
+                .exposedHeaders("Authorization")
+                .maxAge(3600);
     }
 
 }
