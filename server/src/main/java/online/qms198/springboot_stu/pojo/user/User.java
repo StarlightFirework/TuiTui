@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import online.qms198.springboot_stu.pojo.resume.Resume;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Data // 使用注解实现get、set方法
@@ -34,4 +36,8 @@ public class User {
 
     @Column(name = "status")
     private Integer status;
+
+    @JsonManagedReference
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Resume resume;
 }

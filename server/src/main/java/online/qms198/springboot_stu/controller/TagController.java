@@ -13,13 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tags")
-@CrossOrigin(
-        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77"},
-        allowedHeaders = {"Authorization", "Content-Type"},
-        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.PUT},
-        allowCredentials = "true",
-        exposedHeaders = {"Authorization"}
-)
+//@CrossOrigin(
+//        origins = {"http://localhost:3000", "https://qms198.online", "http://117.72.104.77"},
+//        allowedHeaders = {"Authorization", "Content-Type"},
+//        methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.PUT},
+//        allowCredentials = "true",
+//        exposedHeaders = {"Authorization"}
+//)
 public class TagController {
 
     private final TagService tagService;

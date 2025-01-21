@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
+        registry.addResourceHandler("/static/**", "/assets/**", "/images/**")
                 .addResourceLocations("classpath:/static/");
 
     }
@@ -30,7 +30,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("Authorization", "Content-Type")
                 .allowCredentials(true)
-                .exposedHeaders("Authorization");
+                .exposedHeaders("Authorization")
+                .maxAge(3600);
     }
 
 }
