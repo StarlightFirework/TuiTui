@@ -123,4 +123,19 @@ public class RecruitmentController {
         recruitmentRecruitmentGroupMappingService.batchDeleteRecruitmentGroupMapping(recruitmentDto.getGroupAccounts(),recruitmentDto.getRecruitmentId());
         return ResponseMessage.success();
     }
+    @PostMapping("/addDeliver")
+    public ResponseMessage<Recruitment> addRecruitmentDeliver(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
+        recruitmentService.addRecruitmentDeliver(recruitmentStatisticsDto);
+        return ResponseMessage.success();
+    }
+    @PostMapping("/cancelDeliver")
+    public ResponseMessage<Recruitment> cancelRecruitmentDeliver(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
+        recruitmentService.cancelRecruitmentDeliver(recruitmentStatisticsDto);
+        return ResponseMessage.success();
+    }
+    @PostMapping("/getDeliver")
+    public ResponseMessage<RecruitmentPage> findUserDeliver(@RequestBody RecruitmentPageDto recruitmentPageDto){
+        return ResponseMessage.success(recruitmentService.findUserDeliverRecruitment(recruitmentPageDto));
+    }
+
 }

@@ -1,6 +1,8 @@
 package online.qms198.springboot_stu.service.recruitment;
 
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentStatisticsDto;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
@@ -28,5 +30,14 @@ public interface IRecruitmentService {
 
     // 设置招聘信息审核结果
     public void updateAuditRecruitment(RecruitmentAuditDto recruitmentAuditDto) throws Exception;
+
+    // 添加简历投递
+    public void addRecruitmentDeliver(RecruitmentStatisticsDto recruitmentStatisticsDto);
+
+    // 撤销简历投递
+    public RecruitmentPage findUserDeliverRecruitment(RecruitmentPageDto recruitmentPageDto);
+    // 查询用户投递的所有招聘
+    public void cancelRecruitmentDeliver(RecruitmentStatisticsDto recruitmentStatisticsDto);
+
 
 }

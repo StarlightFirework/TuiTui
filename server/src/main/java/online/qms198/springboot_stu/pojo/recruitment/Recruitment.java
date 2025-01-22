@@ -56,7 +56,7 @@ public class Recruitment {
 
     @Column(name = "permission_status", columnDefinition = "INT DEFAULT 0")
     private Integer permissionStatus;
-//    @Column(name = )
+
     public Recruitment(RecruitmentDto recruitmentDto, Recruitment recruitment){
         this.recruitmentId = recruitmentDto.getRecruitmentId();
         this.publisherAccount = recruitmentDto.getPublisherAccount();

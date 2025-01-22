@@ -2,13 +2,17 @@ package online.qms198.springboot_stu.service.recruitment;
 
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
+import online.qms198.springboot_stu.dto.recruitment.RecruitmentStatisticsDto;
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.recruitment.*;
 import online.qms198.springboot_stu.repository.group.RecruitmentRecruitmentGroupMappingRepository;
+import online.qms198.springboot_stu.repository.recruitment.RecruitmentUserResumeMappingRepository;
 import online.qms198.springboot_stu.repository.tag.JobTagMappingRepository;
 import online.qms198.springboot_stu.repository.recruitment.RecruitmentAuditRepository;
 import online.qms198.springboot_stu.repository.recruitment.RecruitmentRepository;
 import online.qms198.springboot_stu.repository.tag.TagRepository;
+import online.qms198.springboot_stu.repository.user.UserRepository;
 import online.qms198.springboot_stu.service.group.IRecruitmentRecruitmentGroupMappingService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +28,9 @@ import java.util.*;
 
 @Service
 public class RecruitmentService implements IRecruitmentService{
+
+    @Autowired
+    UserRepository userRepository;
 
     @Autowired
     RecruitmentRepository recruitmentRepository;
@@ -48,6 +55,9 @@ public class RecruitmentService implements IRecruitmentService{
 
     @Autowired
     RecruitmentRecruitmentGroupMappingRepository recruitmentRecruitmentGroupMappingRepository;
+
+    @Autowired
+    RecruitmentUserResumeMappingRepository recruitmentUserResumeMappingRepository;
     @Override
     public RecruitmentDto getRecruitment(Integer recruitmentId) {
         RecruitmentDto recruitmentDto = new RecruitmentDto(recruitmentRepository.findByRecruitmentId(recruitmentId), jobTagMappingRepository.getTagIdFindByRecruitmentRecruitmentId(recruitmentId));
@@ -237,5 +247,28 @@ public class RecruitmentService implements IRecruitmentService{
             recruitmentAudit.setDescription(recruitmentAuditDto.getDescription());
             recruitmentAuditRepository.save(recruitmentAudit);
         }
+    }
+
+    @Override
+    public void addRecruitmentDeliver(RecruitmentStatisticsDto recruitmentStatisticsDto){
+        RecruitmentUserResumeMapping recruitmentUserResumeMapping = recruitmentUserResumeMappingRepository.findByRecruitmentIdAndUserAccount(recruitmentStatisticsDto.getRecruitmentId(),recruitmentStatisticsDto.getUserAccount());
+        if(recruitmentUserResumeMapping == null){
+            recruitmentUserResumeMappingRepository.save(new RecruitmentUserResumeMapping(null,recruitmentRepository.findByRecruitmentId(recruitmentStatisticsDto.getRecruitmentId()),userRepository.findByUserAccount(recruitmentStatisticsDto.getUserAccount()),0));
+        }else{
+            recruitmentUserResumeMapping.setStatus(0);
+            recruitmentUserResumeMappingRepository.save(recruitmentUserResumeMapping);
+        }
+    }
+    @Override
+    public void cancelRecruitmentDeliver(RecruitmentStatisticsDto recruitmentStatisticsDto){
+        RecruitmentUserResumeMapping recruitmentUserResumeMapping = recruitmentUserResumeMappingRepository.findByRecruitmentIdAndUserAccount(recruitmentStatisticsDto.getRecruitmentId(),recruitmentStatisticsDto.getUserAccount());
+        recruitmentUserResumeMapping.setStatus(1);
+        recruitmentUserResumeMappingRepository.save(recruitmentUserResumeMapping);
+    }
+    @Override
+    public RecruitmentPage findUserDeliverRecruitment(RecruitmentPageDto recruitmentPageDto){
+        Pageable pageable = (Pageable) PageRequest.of(recruitmentPageDto.getPage(),recruitmentPageDto.getSize());
+        Page<Recruitment> oldRecruitmentPage = recruitmentUserResumeMappingRepository.findDeliverRecruitmentByUserAccount(recruitmentPageDto.getUserAccount(),pageable);
+        return new RecruitmentPage((int)oldRecruitmentPage.getTotalElements() , recruitmentChangeRecruitmentDto(oldRecruitmentPage.getContent()));
     }
 }
