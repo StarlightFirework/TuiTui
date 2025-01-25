@@ -46,6 +46,7 @@ public class JwtUtil {
     }
 
     public static void main(String[] args) {
+        // 测试代码
         JwtUtil a = new JwtUtil();
         System.out.println(a.getUserAccountFromToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyQWNjb3VudCI6Ijg4ODg4ODg4IiwidXNlcklkZW50aXR5IjoiMSIsImlhdCI6MTczNjM5NzcyOCwiZXhwIjoxNzM3NjA3MzI4fQ.ZMjFB-NJGU3hdcU0EnpzboZM0013PDxtrGoc4ay1AVk"));
         System.out.println(a.getUserIdentityFromToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyQWNjb3VudCI6Ijg4ODg4ODg4IiwidXNlcklkZW50aXR5IjoiMSIsImlhdCI6MTczNjM5NzcyOCwiZXhwIjoxNzM3NjA3MzI4fQ.ZMjFB-NJGU3hdcU0EnpzboZM0013PDxtrGoc4ay1AVk"));
