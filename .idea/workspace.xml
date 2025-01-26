@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d898a346-9073-4ec0-9bfb-a492fc5153fe" name="更改" comment="更改">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/aop/DebounceAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/user/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/dto/user/UserPageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/common/Debounce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/user/UserPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/utils/DebounceCleanerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/RecruitmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/ResumeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/controller/ResumeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/filter/JwtAuthenticationTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/filter/JwtAuthenticationTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/common/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/pojo/common/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/recruitment/RecruitmentUserResumeMappingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/repository/recruitment/RecruitmentUserResumeMappingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/IRecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/qms198/springboot_stu/service/recruitment/RecruitmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +313,7 @@
       <workItem from="1737729695879" duration="61000" />
       <workItem from="1737859953536" duration="27000" />
       <workItem from="1737874237584" duration="1227000" />
-      <workItem from="1737882960327" duration="7524000" />
+      <workItem from="1737882960327" duration="7905000" />
     </task>
     <servers />
   </component>

@@ -41,13 +41,13 @@ public class RecruitmentController {
     IRecruitmentRecruitmentGroupMappingService recruitmentRecruitmentGroupMappingService;
     @PostMapping("/insert")
     @Debounce(delay = 5000)
-    public ResponseMessage<Recruitment> add(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
+    public ResponseMessage<Recruitment> addRecruitment(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
             Recruitment recruitmentNew = recruitmentService.addRecruitment(recruitmentDto);
             return ResponseMessage.success(recruitmentNew);
     }
 
     @GetMapping("/get/id/{recruitmentId}")
-    public ResponseMessage<RecruitmentDto> getById(@PathVariable Integer recruitmentId) {
+    public ResponseMessage<RecruitmentDto> getRecruitmentById(@PathVariable Integer recruitmentId) {
         RecruitmentDto recruitmentDtoNew = recruitmentService.getRecruitment(recruitmentId);
         return ResponseMessage.success(recruitmentDtoNew);
     }
@@ -70,33 +70,33 @@ public class RecruitmentController {
     }
 
     @PutMapping("/edit")
-    public ResponseMessage<RecruitmentDto> edit(@RequestBody RecruitmentDto recruitmentDto) throws Exception {
+    public ResponseMessage<RecruitmentDto> editRecruitment(@RequestBody RecruitmentDto recruitmentDto) throws Exception {
         RecruitmentDto recruitmentNew = recruitmentService.editRecruitment(recruitmentDto);
         return ResponseMessage.success(recruitmentNew);
     }
 
     // 删除
     @DeleteMapping("/delete/{recruitmentId}")
-    public ResponseMessage<Recruitment> delete(@PathVariable Integer recruitmentId) {
+    public ResponseMessage<Recruitment> deleteRecruitment(@PathVariable Integer recruitmentId) {
         if(recruitmentService.delete(recruitmentId)){
             return ResponseMessage.success();
         }
         return ResponseMessage.error();
     }
     @GetMapping("/statistics/view")
-    public ResponseMessage<Recruitment> plusViewCount(Integer recruitmentId){
+    public ResponseMessage<Recruitment> plusRecruitmentViewCount(Integer recruitmentId){
         recruitmentStatisticsService.updateViewCount(recruitmentId);
         return ResponseMessage.success();
     }
 
     @PostMapping("/statistics/addCollection")
-    public ResponseMessage<Recruitment> addCollection(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
+    public ResponseMessage<Recruitment> addRecruitmentCollection(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
         recruitmentStatisticsService.addCollection(recruitmentStatisticsDto);
         return ResponseMessage.success();
     }
 
     @PostMapping("/statistics/cancelCollection")
-    public ResponseMessage<Recruitment> cancelCollection(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
+    public ResponseMessage<Recruitment> cancelRecruitmentCollection(@RequestBody RecruitmentStatisticsDto recruitmentStatisticsDto){
         recruitmentStatisticsService.cancelCollection(recruitmentStatisticsDto);
         return ResponseMessage.success();
     }
