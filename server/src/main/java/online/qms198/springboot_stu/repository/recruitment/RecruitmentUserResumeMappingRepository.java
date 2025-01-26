@@ -1,5 +1,6 @@
 package online.qms198.springboot_stu.repository.recruitment;
 
+import online.qms198.springboot_stu.dto.user.UserDto;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentUserResumeMapping;
 import org.springframework.data.domain.Page;
@@ -16,4 +17,7 @@ public interface RecruitmentUserResumeMappingRepository extends JpaRepository<Re
     // 分页查找用户投递的所有招聘信息
     @Query("select rurm.recruitment from RecruitmentUserResumeMapping rurm where rurm.user.userAccount = :userAccount and rurm.status = 0")
     public Page<Recruitment> findDeliverRecruitmentByUserAccount(String userAccount , Pageable pageable);
+    // 分页查找招聘信息投递的所有用户
+    @Query("select new online.qms198.springboot_stu.dto.user.UserDto(rurm.user.userId,rurm.user.userName,rurm.user.userAccount,rurm.user.email,rurm.user.userIdentity) from RecruitmentUserResumeMapping rurm where rurm.recruitment.recruitmentId = :recruitmentId and rurm.status = 0")
+    public Page<UserDto> findRecruitmentDeliverUser(Integer recruitmentId , Pageable pageable);
 }

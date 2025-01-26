@@ -5,10 +5,13 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentStatisticsDto;
+import online.qms198.springboot_stu.dto.user.UserPageDto;
+import online.qms198.springboot_stu.pojo.common.Debounce;
 import online.qms198.springboot_stu.pojo.common.ResponseMessage;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
+import online.qms198.springboot_stu.pojo.user.UserPage;
 import online.qms198.springboot_stu.service.group.IRecruitmentRecruitmentGroupMappingService;
 import online.qms198.springboot_stu.service.recruitment.IJobTagMappingService;
 import online.qms198.springboot_stu.service.recruitment.IRecruitmentService;
@@ -37,6 +40,7 @@ public class RecruitmentController {
     @Autowired
     IRecruitmentRecruitmentGroupMappingService recruitmentRecruitmentGroupMappingService;
     @PostMapping("/insert")
+    @Debounce(delay = 5000)
     public ResponseMessage<Recruitment> add(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
             Recruitment recruitmentNew = recruitmentService.addRecruitment(recruitmentDto);
             return ResponseMessage.success(recruitmentNew);
@@ -133,9 +137,13 @@ public class RecruitmentController {
         recruitmentService.cancelRecruitmentDeliver(recruitmentStatisticsDto);
         return ResponseMessage.success();
     }
-    @PostMapping("/getDeliver")
+    @PostMapping("/getUserDeliver")
     public ResponseMessage<RecruitmentPage> findUserDeliver(@RequestBody RecruitmentPageDto recruitmentPageDto){
         return ResponseMessage.success(recruitmentService.findUserDeliverRecruitment(recruitmentPageDto));
+    }
+    @PostMapping("/getDeliverUser")
+    public ResponseMessage<UserPage> findRecruitmentDeliverUser(@RequestBody UserPageDto userPageDto){
+        return ResponseMessage.success(recruitmentService.findRecruitmentDeliverUser(userPageDto));
     }
 
 }

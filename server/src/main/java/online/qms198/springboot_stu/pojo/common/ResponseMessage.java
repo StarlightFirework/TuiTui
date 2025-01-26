@@ -29,7 +29,11 @@ public class ResponseMessage<T> {
         return new ResponseMessage(HttpStatus.MULTI_STATUS.value(), "error!", null);
     }
 
-    public static <T> ResponseMessage<T> error(String errorMessage) {
-        return new ResponseMessage(HttpStatus.MULTI_STATUS.value(), "error!", errorMessage);
+//    public static <T> ResponseMessage<T> error(String errorMessage) {
+//        return new ResponseMessage(HttpStatus.MULTI_STATUS.value(), "error!", errorMessage);
+//    }
+
+    public static <T> ResponseMessage<T> error(Integer code , String errorMessage) {
+        return new ResponseMessage(code, errorMessage, null);
     }
 }

@@ -22,7 +22,7 @@ public class ResumeController {
             Resume resume = resumeService.createResume(resumeDto);
             return ResponseMessage.success(resume);
         } catch (Exception e) {
-            return ResponseMessage.error(e.getMessage());
+            return ResponseMessage.error(500,e.getMessage());
         }
     }
     
@@ -32,7 +32,7 @@ public class ResumeController {
             Resume resume = resumeService.updateResume(resumeDto);
             return ResponseMessage.success(resume);
         } catch (Exception e) {
-            return ResponseMessage.error(e.getMessage());
+            return ResponseMessage.error(500,e.getMessage());
         }
     }
     
@@ -42,7 +42,7 @@ public class ResumeController {
             Resume resume = resumeService.getResumeByUserAccount(userAccount);
             return ResponseMessage.success(resume);
         } catch (Exception e) {
-            return ResponseMessage.error(e.getMessage());
+            return ResponseMessage.error(500,e.getMessage());
         }
     }
     
@@ -52,7 +52,7 @@ public class ResumeController {
             resumeService.deleteResumeByUserAccount(userAccount);
             return ResponseMessage.success("简历删除成功");
         } catch (Exception e) {
-            return ResponseMessage.error(e.getMessage());
+            return ResponseMessage.error(500,e.getMessage());
         }
     }
 } 

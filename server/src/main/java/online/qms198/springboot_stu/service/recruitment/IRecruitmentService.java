@@ -3,9 +3,11 @@ package online.qms198.springboot_stu.service.recruitment;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentStatisticsDto;
+import online.qms198.springboot_stu.dto.user.UserPageDto;
 import online.qms198.springboot_stu.pojo.recruitment.Recruitment;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.pojo.recruitment.RecruitmentPage;
+import online.qms198.springboot_stu.pojo.user.UserPage;
 
 public interface IRecruitmentService {
 
@@ -38,6 +40,6 @@ public interface IRecruitmentService {
     public RecruitmentPage findUserDeliverRecruitment(RecruitmentPageDto recruitmentPageDto);
     // 查询用户投递的所有招聘
     public void cancelRecruitmentDeliver(RecruitmentStatisticsDto recruitmentStatisticsDto);
-
-
+    // 查询招聘信息投递的所有用户
+    public UserPage findRecruitmentDeliverUser(UserPageDto userPageDto);
 }

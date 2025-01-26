@@ -4,8 +4,11 @@ import online.qms198.springboot_stu.dto.recruitment.RecruitmentAuditDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentPageDto;
 import online.qms198.springboot_stu.dto.recruitment.RecruitmentStatisticsDto;
+import online.qms198.springboot_stu.dto.user.UserDto;
+import online.qms198.springboot_stu.dto.user.UserPageDto;
 import online.qms198.springboot_stu.pojo.tag.Tag;
 import online.qms198.springboot_stu.pojo.recruitment.*;
+import online.qms198.springboot_stu.pojo.user.UserPage;
 import online.qms198.springboot_stu.repository.group.RecruitmentRecruitmentGroupMappingRepository;
 import online.qms198.springboot_stu.repository.recruitment.RecruitmentUserResumeMappingRepository;
 import online.qms198.springboot_stu.repository.tag.JobTagMappingRepository;
@@ -270,5 +273,11 @@ public class RecruitmentService implements IRecruitmentService{
         Pageable pageable = (Pageable) PageRequest.of(recruitmentPageDto.getPage(),recruitmentPageDto.getSize());
         Page<Recruitment> oldRecruitmentPage = recruitmentUserResumeMappingRepository.findDeliverRecruitmentByUserAccount(recruitmentPageDto.getUserAccount(),pageable);
         return new RecruitmentPage((int)oldRecruitmentPage.getTotalElements() , recruitmentChangeRecruitmentDto(oldRecruitmentPage.getContent()));
+    }
+    @Override
+    public UserPage findRecruitmentDeliverUser(UserPageDto userPageDto){
+        Pageable pageable = (Pageable) PageRequest.of(userPageDto.getPage(),userPageDto.getSize());
+        Page<UserDto> userDtoPage = recruitmentUserResumeMappingRepository.findRecruitmentDeliverUser(userPageDto.getRecruitmentId(),pageable);
+        return new UserPage((int)userDtoPage.getTotalElements(),userDtoPage.getContent());
     }
 }

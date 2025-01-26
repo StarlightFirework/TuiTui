@@ -23,8 +23,8 @@ import java.util.Objects;
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
-    private static final String AUTH_HEADER = "Authorization";
-    private static final String AUTH_HEADER_TYPE = "Bearer";
+    public static final String AUTH_HEADER = "Authorization";
+    public static final String AUTH_HEADER_TYPE = "Bearer";
 
     @Autowired
     private UserService userService;
