@@ -40,7 +40,7 @@ public class RecruitmentController {
     @Autowired
     IRecruitmentRecruitmentGroupMappingService recruitmentRecruitmentGroupMappingService;
     @PostMapping("/insert")
-    @Debounce(delay = 5000)
+    @Debounce(delay = 5000 , name = "default")
     public ResponseMessage<Recruitment> addRecruitment(@Valid @Validated @RequestBody RecruitmentDto recruitmentDto) throws Exception{
             Recruitment recruitmentNew = recruitmentService.addRecruitment(recruitmentDto);
             return ResponseMessage.success(recruitmentNew);

@@ -12,7 +12,6 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import java.lang.reflect.Method;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -34,14 +33,20 @@ public class DebounceAspect {
         // 获取当前请求的用户ID，假设用户ID通过请求头传递
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String userAccount = JwtUtil.getUserAccountFromToken(request.getHeader(AUTH_HEADER).substring(AUTH_HEADER_TYPE.length()).trim());
-        String key = userAccount + ":" + method.getName();
+        // 设置防抖Map的key值
+        String key = "";
+        if(debounce.name().equals("default")){
+            key= userAccount + ":" + joinPoint.getTarget().getClass().getName() + "." + method.getName();
+        }else{
+            key = userAccount + ":" + debounce.name();
+        }
 
         long currentTime = System.currentTimeMillis();
 
         Long lastTime = requestTimestamps.get(key);
         if (lastTime != null && (currentTime - lastTime) < debounce.delay()) {
             // 如果在防抖时间内，则忽略这次调用
-            log.info("用户 {} 访问接口 {} 过于频繁，防抖成功", userAccount, methodSignature.getMethod());
+            log.info("用户 {} 访问接口 {} 过于频繁，防抖成功，去抖名称：{}" , userAccount, joinPoint.getTarget().getClass().getName() + "." + method.getName() , debounce.name());
             return ResponseMessage.error(429, "请求太频繁，请稍后再试");
         }
 

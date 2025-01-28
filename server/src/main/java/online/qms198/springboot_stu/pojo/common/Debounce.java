@@ -9,4 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Debounce {
     long delay() default 1000; // 默认防抖时间为1000毫秒
+
+    String name() default "default"; // 防抖接口名
 }
